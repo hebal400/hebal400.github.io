@@ -13,10 +13,11 @@ export default class Login extends Component {
     componentDidMount = () => this.createLoginButton();
 
     createLoginButton = () => {
+        let changeAuth = this.props.changeAuth;
         window.Kakao.Auth.createLoginButton({
             container: '.kakao-login-btn',
             success: function(authObj) {
-              alert(JSON.stringify(authObj));
+              console.log(JSON.stringify(authObj));
             },
             fail: function(err) {
                alert(JSON.stringify(err));
@@ -32,10 +33,8 @@ export default class Login extends Component {
                 className="settings-btn"
                 onClick={() => alert("test")}
             />
-            <div className="image-dummy">&lt;이미지 테스트&gt;</div>
+            <div className="image-dummy">&lt;이미지 테스트에오&gt;</div>
             <div className="kakao-login-btn"></div>
-            
-            <Profile />
         </div>
         )
     }

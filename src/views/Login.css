@@ -1,5 +1,6 @@
 .login {
-    background-color: #e7e7e7;
+    flex:1;
+    background-color: #ffffff;
     display: flex;
     position: relative;
     flex-direction: column;
@@ -29,5 +30,5 @@ button:focus {
     background-color: skyblue;
     width: 160px;
     height: 160px;
-    margin: 20px 0;
+    margin: 50px 0;
 }

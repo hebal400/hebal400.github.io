@@ -1,32 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 
 import Login from './views/Login';
 import Main from './views/Main';
+import Loading from './views/component/Loading';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      isLogin : false,    
     }
   }
   componentDidMount = () => this.isLogined();
 
   isLogined = () => {
     window.Kakao.Auth.getStatus(statusObj => {
-      console.log(statusObj)
       let isLogin = statusObj.status === "connected" ? true : false;
-      this.setState({ isLogin }, () => {
-        console.log(this.state)
-      });
+      this.setState({ isLogin });
     })
   }
-
   render() {
-    return !this.state.isLogin ? <Login /> : <Main />;
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={() => <Loading isAuthed={this.state.isLogin} />} />
+          <Route path="/login" component={() => <Login changeAuth={this.changeAuth}/>} />
+          <Route path="/send" component={() => <Main changeAuth={this.changeAuth}/>} />  
+        </Switch>
+      </BrowserRouter>
+    );
   }
 }
 
