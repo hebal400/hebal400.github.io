@@ -6,26 +6,35 @@
 import React, { Component } from 'react'
 import Profile from './Profile';
 import Settings from './component/Settings'
+import { Redirect } from 'react-router-dom';
 import './Login.css';
 
 export default class Login extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            redirect: false
+        }
+    }
 
     componentDidMount = () => this.createLoginButton();
 
     createLoginButton = () => {
-        let changeAuth = this.props.changeAuth;
         window.Kakao.Auth.createLoginButton({
             container: '.kakao-login-btn',
-            success: function(authObj) {
-              console.log(JSON.stringify(authObj));
+            success: authObj => {
+                console.log(JSON.stringify(authObj));
+                this.setState({redirect: true});
             },
-            fail: function(err) {
+            fail: err => {
                alert(JSON.stringify(err));
             }
         });
     }
 
     render() {
+        if(this.state.redirect) return <Redirect to="/send" />
         return (
         <div className="login">
             <Settings
