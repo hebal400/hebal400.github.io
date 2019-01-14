@@ -26,9 +26,7 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <Login />
-    );
+    return !this.state.isLogin ? <Login /> : <Main />;
   }
 }
 

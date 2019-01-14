@@ -1,4 +1,10 @@
+/**
+ * Login.js
+ * Aerain, Jeju National University.
+ */
+
 import React, { Component } from 'react'
+import Profile from './Profile';
 import Settings from './component/Settings'
 import './Login.css';
 
@@ -28,6 +34,8 @@ export default class Login extends Component {
             />
             <div className="image-dummy">&lt;이미지 테스트&gt;</div>
             <div className="kakao-login-btn"></div>
+            
+            <Profile />
         </div>
         )
     }

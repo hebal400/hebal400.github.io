@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Main extends Component {
+export default class Profile extends Component {
   render() {
     return (
       <div>
-        로그인 했대요
+        tt
       </div>
     )
   }
