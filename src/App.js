@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import Login from './views/Login';
@@ -18,8 +18,11 @@ class App extends Component {
   isLogined = () => {
     window.Kakao.Auth.getStatus(statusObj => {
       let isLogin = statusObj.status === "connected" ? true : false;
-      this.setState({ isLogin });
+      this.setState({ isLogin }, () => {
+        console.log(this.state);
+      });
     })
+    
   }
   render() {
     return (

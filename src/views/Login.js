@@ -4,7 +4,6 @@
  */
 
 import React, { Component } from 'react'
-import Profile from './Profile';
 import Settings from './component/Settings'
 import { Redirect } from 'react-router-dom';
 import './Login.css';
@@ -26,6 +25,7 @@ export default class Login extends Component {
             success: authObj => {
                 console.log(JSON.stringify(authObj));
                 this.setState({redirect: true});
+                global.authObj = authObj;
             },
             fail: err => {
                alert(JSON.stringify(err));
