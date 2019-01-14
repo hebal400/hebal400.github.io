@@ -1,0 +1,33 @@
+.login {
+    background-color: #e7e7e7;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 50px 20px 40px 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings-btn {
+    position:absolute;
+    background-color: transparent;
+    border: 0;
+    top: 20px;
+    right: 20px;
+    color: #777777;
+}
+
+.settings-btn:hover {
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.image-dummy {
+    background-color: skyblue;
+    width: 160px;
+    height: 160px;
+    margin: 20px 0;
+}
