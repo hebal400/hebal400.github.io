@@ -1,0 +1,4 @@
+curl --verbose -X POST "http://kapi.kakao.com/v2/api/talk/memo/send" \
+-H "Authorization: Bearer 3KGH6HnChVTAPAUvt_ICdZV04xAMMobNX48BWwoqAuYAAAFoT6YsvA" \
+-d 'template_id=14322' \
+--data-urlencode 'template_args={"title":"파워테스트"}'

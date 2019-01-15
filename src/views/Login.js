@@ -23,9 +23,7 @@ export default class Login extends Component {
         window.Kakao.Auth.createLoginButton({
             container: '.kakao-login-btn',
             success: authObj => {
-                console.log(JSON.stringify(authObj));
                 this.setState({redirect: true});
-                global.authObj = authObj;
             },
             fail: err => {
                alert(JSON.stringify(err));
