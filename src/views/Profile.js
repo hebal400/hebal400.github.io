@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import './Profile.css';
+import Logout from './component/Logout';
+import Settings from './component/Settings';
 
 export default class Profile extends Component {
   _isMounted = false;
@@ -15,7 +18,7 @@ export default class Profile extends Component {
   }
   componentDidMount = () => {
     this._isMounted = true;
-    this.getProfile()
+    this.getProfile();
   }
 
   getProfile = async () => {
@@ -24,18 +27,24 @@ export default class Profile extends Component {
       })
       let { properties } = res;
       if(this._isMounted) await this.setState({properties})
-      console.log(this.state)
   }
   
   componentWillUnmount = () => {
     this._isMounted = false;
   }
+
   render = () => {
     let {nickname, thumbnail_image} = this.state.properties;
     return(
-      <header>
-        <img src={thumbnail_image !== 'none' ? thumbnail_image : ''} />
-        <span>{nickname !== 'none' ? nickname : ''}</span>
+      <header className="profile-header">
+        <div className="profile-item">
+          <img className="profile-image" src={thumbnail_image !== 'none' ? thumbnail_image : ''} />
+          <span className="profile-nickname">{nickname !== 'none' ? nickname : ''}</span>
+        </div>
+        <div className="header-btn-container">
+          <Settings size={25} onClick={() => console.log('test')} />
+          <Logout size={25} onClick={this.props.kakaoLogOut} />
+        </div>
       </header>
     )
   }
