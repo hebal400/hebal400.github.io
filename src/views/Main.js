@@ -19,6 +19,16 @@ export default class Main extends Component {
     this.setState({isLogin: false});
   }
 
+  sendTest = async () => {
+    let res = await window.Kakao.API.request({
+      url: '/v2/api/talk/memo/send',
+      data: {
+        'template_id': 14322
+      }
+    })
+    console.log(res);
+  }
+
   render() {
     if(!this.state.isLogin) return <Redirect to="/login" />
     return (

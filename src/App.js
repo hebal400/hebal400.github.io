@@ -18,9 +18,7 @@ class App extends Component {
   isLogined = () => {
     window.Kakao.Auth.getStatus(statusObj => {
       let isLogin = statusObj.status === "connected" ? true : false;
-      this.setState({ isLogin }, () => {
-        console.log(this.state);
-      });
+      this.setState({ isLogin });
     })
     
   }

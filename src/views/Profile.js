@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Profile.css';
-import Logout from './component/Logout';
-import Settings from './component/Settings';
+import { SettingsButton } from './component';
 
 export default class Profile extends Component {
   _isMounted = false;
@@ -38,13 +37,11 @@ export default class Profile extends Component {
     return(
       <header className="profile-header">
         <div className="profile-item">
-          <img className="profile-image" src={thumbnail_image !== 'none' ? thumbnail_image : ''} />
+          <img className="profile-image" src={thumbnail_image !== 'none' ? thumbnail_image : ''} alt="프로필 사진" />
           <span className="profile-nickname">{nickname !== 'none' ? nickname : ''}</span>
         </div>
-        <div className="header-btn-container">
-          <Settings size={25} onClick={() => console.log('test')} />
-          <Logout size={25} onClick={this.props.kakaoLogOut} />
-        </div>
+        <SettingsButton className="settings-btn" size={25} onClick={() => console.log('test')} />
+        {/* <LogOutButton size={25} onClick={this.props.kakaoLogOut} /> */}
       </header>
     )
   }
