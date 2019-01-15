@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './Profile.css';
+import './css/Profile.css';
 import { SettingsButton } from './component';
+import { Link } from 'react-router-dom';
 
 export default class Profile extends Component {
   _isMounted = false;
@@ -40,8 +41,7 @@ export default class Profile extends Component {
           <img className="profile-image" src={thumbnail_image !== 'none' ? thumbnail_image : ''} alt="프로필 사진" />
           <span className="profile-nickname">{nickname !== 'none' ? nickname : ''}</span>
         </div>
-        <SettingsButton className="settings-btn" size={25} onClick={() => console.log('test')} />
-        {/* <LogOutButton size={25} onClick={this.props.kakaoLogOut} /> */}
+        <Link to="/settings"><SettingsButton className="settings-btn" size={25} color="#353645"/></Link>
       </header>
     )
   }

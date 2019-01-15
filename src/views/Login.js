@@ -6,7 +6,7 @@
 import React, { Component } from 'react'
 import Settings from './component/Settings'
 import { Redirect } from 'react-router-dom';
-import './Login.css';
+import './css/Login.css';
 
 export default class Login extends Component {
     constructor(props) {

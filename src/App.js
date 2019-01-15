@@ -5,6 +5,7 @@ import './App.css';
 import Login from './views/Login';
 import Main from './views/Main';
 import Loading from './views/component/Loading';
+import Settings from './views/Setting';
 
 class App extends Component {
 
@@ -26,9 +27,10 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={() => <Loading isAuthed={this.state.isLogin} />} />
-          <Route path="/login" component={() => <Login changeAuth={this.changeAuth}/>} />
-          <Route path="/send" component={() => <Main changeAuth={this.changeAuth}/>} />  
+          <Route exact path="/" component={props => <Loading {...props} isAuthed={this.state.isLogin} />} />
+          <Route path="/login" component={props => <Login {...props} changeAuth={this.changeAuth}/>} />
+          <Route path="/send" component={props => <Main {...props} changeAuth={this.changeAuth}/>} />  
+          <Route path="/settings" component={Settings} />
         </Switch>
       </BrowserRouter>
     );

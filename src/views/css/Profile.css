@@ -23,10 +23,6 @@
     font-size: 12pt;
 }
 
-.settings-btn {
-    color:rgb(53, 54, 69);
-}
-
 .settings-btn:hover {
     cursor: pointer;
 }
