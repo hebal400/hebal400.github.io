@@ -30,6 +30,7 @@
     background-color: #f7f7f7;
     display: flex;
     flex-direction: column;
+    padding-top: 15px;
 }
 
 .settings-list > .settings-list-item {
@@ -54,6 +55,10 @@
 
 .logout-button {
     margin: 0px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10pt;
 }
 
 .logout-button:hover {

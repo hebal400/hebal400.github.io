@@ -36,12 +36,14 @@ export default class Setting extends Component {
                 </div>
             </div>
             <footer className="settings-footer">
-                <LogOutButton 
-                    className="logout-button" 
-                    size={25} 
-                    color="rgb(53,64,69" 
-                    onClick={this.kakaoLogOut}
-                />
+                <span className="logout-button" >
+                    <LogOutButton 
+                        size={25} 
+                        color="rgb(53,64,69" 
+                        onClick={this.kakaoLogOut}
+                    />
+                </span>
+                
             </footer>
         </div>
         )

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Redirect, Link } from 'react-router-dom';
+import { IoIosClipboard, IoIosCalculator } from 'react-icons/io';
+
 import './css/Main.css';
 import Profile from './Profile';
 import Send from './Send';
@@ -22,10 +24,16 @@ export default class Main extends Component {
           <Profile kakaoLogOut={this.kakaoLogOut} />
           <ul className="main-tabs">
             <li className="main-tabs-item">
-              <Link to={`${match.path}`}>보내기</Link>
+              <Link to={`${match.path}`}>
+                <IoIosClipboard className="main-tabs-icon" size={25} color="#344955"/>
+                <span>보내기</span>
+              </Link>
             </li>
             <li className="main-tabs-item">
-              <Link to={`${match.path}/test`}>테스트</Link>
+              <Link to={`${match.path}/test`}>
+                <IoIosCalculator className="main-tabs-icon" size={25} color="#344955"/>
+                <span>테스트</span>
+              </Link>
             </li>
           </ul>
           <Route exact path={`${match.path}`} component={Send} />
