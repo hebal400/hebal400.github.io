@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect, Link } from 'react-router-dom';
+import { Route, Redirect, NavLink } from 'react-router-dom';
 import { IoIosClipboard, IoIosCalculator } from 'react-icons/io';
 
 import './css/Main.css';
@@ -14,8 +14,9 @@ export default class Main extends Component {
     this.state = {
       isLogin: true
     }
+
   }
-  
+
   render() {
     let { match } = this.props;
     if(!this.state.isLogin) return <Redirect to="/login" />
@@ -24,16 +25,16 @@ export default class Main extends Component {
           <Profile kakaoLogOut={this.kakaoLogOut} />
           <ul className="main-tabs">
             <li className="main-tabs-item">
-              <Link to={`${match.path}`}>
+              <NavLink to={`${match.path}`}>
                 <IoIosClipboard className="main-tabs-icon" size={25} color="#344955"/>
                 <span>보내기</span>
-              </Link>
+              </NavLink>
             </li>
             <li className="main-tabs-item">
-              <Link to={`${match.path}/test`}>
+              <NavLink to={`${match.path}/test`}>
                 <IoIosCalculator className="main-tabs-icon" size={25} color="#344955"/>
                 <span>테스트</span>
-              </Link>
+              </NavLink>
             </li>
           </ul>
           <Route exact path={`${match.path}`} component={Send} />
