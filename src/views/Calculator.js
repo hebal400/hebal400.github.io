@@ -4,7 +4,7 @@ export default class Calculator extends Component {
   render() {
     return (
       <div>
-        test
+        test이에오
       </div>
     )
   }
