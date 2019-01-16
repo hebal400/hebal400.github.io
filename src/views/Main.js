@@ -20,11 +20,11 @@ export default class Main extends Component {
     return (
         <div>
           <Profile kakaoLogOut={this.kakaoLogOut} />
-          <ul>
-            <li>
+          <ul className="main-tabs">
+            <li className="main-tabs-item">
               <Link to={`${match.path}`}>보내기</Link>
             </li>
-            <li>
+            <li className="main-tabs-item">
               <Link to={`${match.path}/test`}>테스트</Link>
             </li>
           </ul>
