@@ -13,6 +13,6 @@ export default class Loading extends Component {
         } else {
             if(!this.props.isAuthed) return <Redirect to="/login" />
             else return <Redirect to="/send" />
-        }
+        }   
     }
 }

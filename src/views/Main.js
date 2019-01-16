@@ -3,7 +3,7 @@ import { Route, Redirect, Link } from 'react-router-dom';
 import './css/Main.css';
 import Profile from './Profile';
 import Send from './Send';
-import Test from './Test';
+import Calculator from './Calculator';
 
 export default class Main extends Component {
 
@@ -13,25 +13,7 @@ export default class Main extends Component {
       isLogin: true
     }
   }
-
-  sendTest = async () => {
-    try {
-      let res = await window.Kakao.API.request({
-        url: '/v2/api/talk/memo/send',
-        data: {
-          'template_id': 14322,
-          'args': JSON.stringify({
-            'title': "파워테스트",
-            'description': "실화냐.."
-          })
-        }
-      })
-      console.log(res);
-    } catch (err) {
-      console.log(err, '이에오');
-    }
-  }
-
+  
   render() {
     let { match } = this.props;
     if(!this.state.isLogin) return <Redirect to="/login" />
@@ -47,7 +29,7 @@ export default class Main extends Component {
             </li>
           </ul>
           <Route exact path={`${match.path}`} component={Send} />
-          <Route path={`${match.path}/test`} component={Test} />
+          <Route path={`${match.path}/test`} component={Calculator} />
         </div>
     )
   }
