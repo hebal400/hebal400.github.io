@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react'
 import Settings from './component/Settings'
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import './css/Login.css';
 
 export default class Login extends Component {
@@ -35,11 +35,13 @@ export default class Login extends Component {
         if(this.state.redirect) return <Redirect to="/send" />
         return (
         <div className="login">
-            <Settings
-                size={30}
-                className="settings-btn"
-                onClick={() => alert("test")}
-            />
+            <Link to={{ pathname: "/settings", state: { isLogin: false }}}>
+                <Settings
+                    size={30}
+                    className="settings-btn"
+                />
+            </Link>
+            
             <div className="image-dummy">&lt;이미지 테스트에오&gt;</div>
             <div className="kakao-login-btn"></div>
         </div>

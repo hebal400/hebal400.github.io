@@ -41,7 +41,7 @@ export default class Profile extends Component {
           <img className="profile-image" src={thumbnail_image !== 'none' ? thumbnail_image : ''} alt="프로필 사진" />
           <span className="profile-nickname">{nickname !== 'none' ? nickname : ''}</span>
         </div>
-        <Link to="/settings"><SettingsButton className="settings-btn" size={25} color="#353645"/></Link>
+        <Link to={{pathname: "/settings", state: { isLogin: true }}}><SettingsButton className="settings-btn" size={25} color="#353645"/></Link>
       </header>
     )
   }

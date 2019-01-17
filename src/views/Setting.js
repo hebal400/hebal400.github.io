@@ -9,7 +9,8 @@ export default class Setting extends Component {
         super(props);
 
         this.state = {
-            isLogin: true
+            isLogin: props.location.state.isLogin,
+            redirect: false
         }
     }
     goBack = () => {
@@ -17,12 +18,16 @@ export default class Setting extends Component {
     }
 
     kakaoLogOut = () => {
-        window.Kakao.Auth.logout();
-        this.setState({isLogin: false});
+        if(this.state.isLogin) {
+            window.Kakao.Auth.logout();
+            this.setState({isLogin: false, redirect: true});
+        }
     }
 
     render() {
-        if(!this.state.isLogin) return <Redirect to="/login" />
+        
+        console.log(this.state.isLogin)
+        if(this.state.redirect) return <Redirect to="/login" />
 
         return (
         <div className="settings">
@@ -36,14 +41,15 @@ export default class Setting extends Component {
                 </div>
             </div>
             <footer className="settings-footer">
-                <span className="logout-button" >
-                    <LogOutButton 
-                        size={25} 
-                        color="rgb(53,64,69" 
-                        onClick={this.kakaoLogOut}
-                    />
-                </span>
-                
+                { (this.state.isLogin) ? (
+                    <span className="logout-button" >
+                        <LogOutButton 
+                            size={25} 
+                            color="rgb(53,64,69" 
+                            onClick={this.kakaoLogOut}
+                        />
+                    </span>
+                ) : null} 
             </footer>
         </div>
         )
