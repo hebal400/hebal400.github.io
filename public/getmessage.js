@@ -1,4 +1,5 @@
-window.onload = () => {
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('온로드')
     window.addEventListener('message', e => {
         // 카카오 api 메시지와 충돌 방지
         if(e.origin !== 'https://kapi.kakao.com') {
@@ -13,5 +14,7 @@ window.onload = () => {
                 window.parsedData = data.parsedData;
             }
         }
-    }, false)
-};
+    }, false);
+
+    window.parent.postMessage('test', '*');
+});

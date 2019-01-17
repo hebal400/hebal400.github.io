@@ -43,20 +43,28 @@ export default class Send extends Component {
         return (
         <div>
           <div id="working">
-            <label htmlFor="working-hour" className="label">근무시간</label>
-            <input name="working-hour" className="text working-hour" />
+            <label htmlFor="working-hour" className="label">
+              근무시간
+              <input name="working-hour" className="text working-hour" />
+            </label>
             <br />
 
-            <label htmlFor="pay" className="label">급여</label>
-            <input name="pay" className="text pay" />
+            <label htmlFor="pay" className="label">
+              급여
+              <input name="pay" className="text pay" />
+            </label>
             <br />
 
-            <label type="number" htmlFor="callnumber" className="label">연락처</label>
-            <input name="callnumber" className="text callnumber" />
+            <label type="number" htmlFor="callnumber" className="label">
+              연락처
+              <input name="callnumber" className="text callnumber" />
+            </label>
             <br />
 
-            <label htmlFor="more-details" className="label">추가메모</label>
-            <input type="text" name="more-details" id="more-details" />
+            <label htmlFor="more-details" className="label">
+              추가메모
+              <input type="text" name="more-details" id="more-details" />
+            </label>
 
           </div>
           <button onClick={this.sendTest}>내게보내기 테스트</button>
