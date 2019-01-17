@@ -32,7 +32,7 @@ export default class Profile extends Component {
   componentWillUnmount = () => {
     this._isMounted = false;
   }
-
+  
   render = () => {
     let {nickname, thumbnail_image} = this.state.properties;
     return(

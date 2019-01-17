@@ -24,6 +24,16 @@ export default class Setting extends Component {
         }
     }
 
+    _renderLoginButton = () => ((this.state.isLogin) ? (
+        <span className="logout-button" >
+            <LogOutButton 
+                size={25} 
+                color="rgb(53,64,69" 
+                onClick={this.kakaoLogOut}
+            />
+        </span>
+    ) : null)
+
     render() {
         
         console.log(this.state.isLogin)
@@ -37,19 +47,11 @@ export default class Setting extends Component {
             </header>
             <div className="settings-list">
                 <div className="settings-list-item">
-                    <span className="settings-list-item-title">오픈소스 라이센스</span>
+                    <span className="settings-list-item-title">개발자 소개</span>
                 </div>
             </div>
             <footer className="settings-footer">
-                { (this.state.isLogin) ? (
-                    <span className="logout-button" >
-                        <LogOutButton 
-                            size={25} 
-                            color="rgb(53,64,69" 
-                            onClick={this.kakaoLogOut}
-                        />
-                    </span>
-                ) : null} 
+                { this._renderLoginButton() } 
             </footer>
         </div>
         )
