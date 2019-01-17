@@ -1,13 +1,14 @@
 {
-  "main.css": "/static/css/main.7438e92b.chunk.css",
-  "main.js": "/static/js/main.b6b6a4bf.chunk.js",
-  "main.js.map": "/static/js/main.b6b6a4bf.chunk.js.map",
-  "static/js/1.9ab60915.chunk.js": "/static/js/1.9ab60915.chunk.js",
-  "static/js/1.9ab60915.chunk.js.map": "/static/js/1.9ab60915.chunk.js.map",
+  "main.css": "/static/css/main.99005dea.chunk.css",
+  "main.js": "/static/js/main.82dff7f2.chunk.js",
+  "main.js.map": "/static/js/main.82dff7f2.chunk.js.map",
+  "static/js/1.ecbecc3d.chunk.js": "/static/js/1.ecbecc3d.chunk.js",
+  "static/js/1.ecbecc3d.chunk.js.map": "/static/js/1.ecbecc3d.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/main.7438e92b.chunk.css.map": "/static/css/main.7438e92b.chunk.css.map",
+  "static/media/Calculator.css": "/static/media/albatalklogo.ab12cfbf.png",
+  "static/css/main.99005dea.chunk.css.map": "/static/css/main.99005dea.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.2469a75962ee22706dc8b0e5330077d3.js": "/precache-manifest.2469a75962ee22706dc8b0e5330077d3.js",
+  "precache-manifest.39f3ad501eaef001571ac16444116967.js": "/precache-manifest.39f3ad501eaef001571ac16444116967.js",
   "service-worker.js": "/service-worker.js"
 }
