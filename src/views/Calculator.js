@@ -16,19 +16,30 @@ export default class Calculator extends Component {
 
   changefromValueState = event => {
     let fromValue = event.currentTarget.value;
-    this.setState({fromValue})
-    this.compareValues()
+    this.setState({fromValue}, this.compareValues)
   }
 
   changetoValueState = event => {
     let toValue = event.currentTarget.value;
-    this.setState({toValue})
-    this.compareValues()
+    this.setState({toValue}, this.compareValues)
   }
 
   compareValues = () => {
-    console.log(Calculation.test());
+
+    let {fromValue, toValue} = this.state;
+    console.log(fromValue, toValue)
+    if(fromValue === toValue) alert('둘이 같아오');
+    console.log(this.state.fromValue, this.state.toValue);
+    //console.log(Calculation.test(this.state.fromValue, this.state.toValue)); 
   }
+
+  _renderMonth = () => (this.state.toValue !== '월급')
+  ? (
+      <li>
+          <a href="#monthworkday"><label htmlFor="monthworkday" className="title">한 달 근무일 수</label></a>
+          <input type="text" id="monthworkday" />일
+      </li>
+  ) : null
 
   render() {
     return (
@@ -66,17 +77,19 @@ export default class Calculator extends Component {
         <div className="formarea">
             <ul id="formul">
                 <li>
-                    <a href="#monthpay"><label htmlFor="monthpay" className="title">{this.state.fromValue}</label></a>
-                    <input type="text" id="monthpay" autoFocus="checked" />원
+                    <a href="#pay"><label htmlFor="pay" className="title">{this.state.fromValue}</label></a>
+                    <input type="text" id="pay" autoFocus="checked" />원
                 </li>
                 <li>
                     <a href="#dayworktime"><label htmlFor="dayworktime" className="title">일일 근무 시간</label></a>
                     <input type="text" id="dayworktime" />시간
                 </li>
                 <li>
-                    <a href="#monthworkday"><label htmlFor="monthworkday" className="title">한 달 근무일 수</label></a>
-                    <input type="text" id="monthworkday" />일
+                    <a href="#weekworkday"><label htmlFor="weekworkday" className="title">한 주 근무일 수</label></a>
+                    <input type="text" id="weekworkday" />일
                 </li>
+                {this._renderMonth()}
+                
             </ul>
             <div className="calculbtn">
                 <p>계산하기</p>
