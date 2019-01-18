@@ -28,7 +28,7 @@ export default class Setting extends Component {
         <span className="logout-button" >
             <LogOutButton 
                 size={25} 
-                color="rgb(53,64,69" 
+                color="rgb(53,64,69)" 
                 onClick={this.kakaoLogOut}
             />
         </span>
