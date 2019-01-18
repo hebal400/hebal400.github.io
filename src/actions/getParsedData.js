@@ -1,4 +1,4 @@
-function getParsedData(callback = null) {
+export default function getParsedData(callback = null) {
 
     // iframe 상태일때만 동작하게
     if(window.parent === window) {
@@ -6,10 +6,10 @@ function getParsedData(callback = null) {
         return;
     }
     
-    window.addEventListener('message', function (event) {
-        window.removeEventListener('message', arguments.callee, false);
+    let whenReceivedData = function (event) {
+        window.removeEventListener('message', whenReceivedData, false);
         // 카카오 api 메시지와 충돌 방지
-        if(!(event.origin == 'https://kapi.kakao.com' || event.origin == 'https://kauth.kakao.com')) {
+        if(!(event.origin === 'https://kapi.kakao.com' || event.origin === 'https://kauth.kakao.com')) {
             let { data } = event;
 
             // 부모 윈도우에서 origin 을 쏴줘서 실제 쏴준 곳과 일치하는지 확인
@@ -23,7 +23,9 @@ function getParsedData(callback = null) {
             }
         }
 
-    }, false);
+    }
+
+    window.addEventListener('message', whenReceivedData, false);
 
     // 부모 측에 메시지 전달
     window.parent.postMessage('requestDataFromParent', '*');

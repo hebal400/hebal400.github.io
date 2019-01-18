@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { getParsedData } from '../actions';
 
 export default class Send extends Component {
 
@@ -12,7 +13,7 @@ export default class Send extends Component {
 
   componentDidMount = () => {
     // 테스트용
-    window.getParsedData((data) => {
+    getParsedData((data) => {
       console.log(data);
       if(data.parsedData) {
         this.setState({
