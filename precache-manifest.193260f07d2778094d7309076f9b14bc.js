@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "6f5207659edc0b233f8b",
+    "revision": "d57c97049bd4d4a1c0e2",
     "url": "/static/css/main.99fd8895.chunk.css"
   },
   {
-    "revision": "6f5207659edc0b233f8b",
-    "url": "/static/js/main.6f520765.chunk.js"
+    "revision": "d57c97049bd4d4a1c0e2",
+    "url": "/static/js/main.d57c9704.chunk.js"
   },
   {
     "revision": "4a332fd24c5ed742f078",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/static/media/albatalklogo.ab12cfbf.png"
   },
   {
-    "revision": "7653ddb8619aeda74fbfb79140aba8fa",
+    "revision": "031c8acb572260be7dad3fe29d8461d5",
     "url": "/index.html"
   }
 ];
