@@ -15,7 +15,7 @@ export default class Send extends Component {
     // 테스트용
     getParsedData((data) => {
       console.log(data);
-      if(data.parsedData) {
+      if(data.result) {
         this.setState({
           test: data.parsedData.title
         })
