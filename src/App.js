@@ -17,11 +17,14 @@ class App extends Component {
   componentDidMount = () => this.isLogined();
 
   isLogined = () => {
-    window.Kakao.Auth.getStatus(statusObj => {
-      let isLogin = statusObj.status === "connected" ? true : false;
-      this.setState({ isLogin });
-    })
-    
+    try {
+      window.Kakao.Auth.getStatus(statusObj => {
+        let isLogin = statusObj.status === "connected" ? true : false;
+        this.setState({ isLogin });
+      })
+    } catch (error) {
+      this.setState({ isLogin: false });
+    }
   }
   render() {
     return (
