@@ -2,6 +2,27 @@ import React, { Component } from 'react'
 
 export default class Send extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      test:'안들어왔어요'
+    }
+  }
+
+  componentDidMount = () => {
+    // 테스트용
+    window.getParsedData((data) => {
+      console.log(data);
+      if(data.parsedData) {
+        this.setState({
+          test: data.parsedData.title
+        })
+      }
+      
+    });
+  }
+
   sendTest = async () => {
     try {
       // let res = await window.Kakao.API.request({
@@ -68,6 +89,7 @@ export default class Send extends Component {
 
           </div>
           <button onClick={this.sendTest}>내게보내기 테스트</button>
+          <div>{this.state.test}</div>
         </div>
         )
   }
