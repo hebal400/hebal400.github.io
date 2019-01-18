@@ -1,156 +1,195 @@
 export default class Calculation {
-    static test (fromValue, toValue) {
+    static renderingForms (fromValue, toValue) {
         if(fromValue===toValue){
-            alert("fromValue와 toValue가 같습니다.")
+            //alert("fromValue와 toValue가 같습니다.")
+            return [0, 0, 0]
         }
         
         if(fromValue==="시급"){
             if(toValue==="일급"){
-                return "시급-일급 form 렌더링"
+                return [1, 0, 0]
             }
             else if(toValue==="주급"){
-                return "시급-주급 form 렌더링"
+                return [1, 1, 0]
             }
             else if(toValue==="월급"){
-                return "시급-월급 form 렌더링"
+                return [1, 0, 1]
             }
             else if(toValue==="연봉"){
-                return "시급-연봉 form 렌더링"
+                return [1, 0, 1]
             }
         }
         else if(fromValue==="일급"){
             if(toValue==="시급"){
-                return "일급-시급 form 렌더링"
+                return [1, 0, 0]
             }
             else if(toValue==="주급"){
-                return "일급-주급 form 렌더링"
+                return [0, 1, 0]
             }
             else if(toValue==="월급"){
-                return "일급-월급 form 렌더링"
+                return [0, 0, 1]
             }
             else if(toValue==="연봉"){
-                return "일급-연봉 form 렌더링"
+                return [0, 0, 1]
             }
         }
         else if(fromValue==="주급"){
             if(toValue==="시급"){
-                return "주급-시급 form 렌더링"
+                return [1, 1, 0]
             }
             else if(toValue==="일급"){
-                return "주급-일급 form 렌더링"
+                return [0, 1, 0]
             }
             else if(toValue==="월급"){
-                return "주급-월급 form 렌더링"
+                return [0, 1, 1]
             }
             else if(toValue==="연봉"){
-                return "주급-연봉 form 렌더링"
+                return [0, 1, 1]
             }
         }
         else if(fromValue==="월급"){
             if(toValue==="시급"){
-                return "월급-시급 form 렌더링"
+                return [1, 0, 1]
             }
             else if(toValue==="일급"){
-                return "월급-일급 form 렌더링"
+                return [0, 0, 1]
             }
             else if(toValue==="주급"){
-                return "월급-주급 form 렌더링"
+                return [0, 1, 1]
             }
             else if(toValue==="연봉"){
-                return "월급-연봉 form 렌더링"
+                return [0, 0, 0]
             }
         }
         else if(fromValue==="연봉"){
             if(toValue==="시급"){
-                return "연봉-시급 form 렌더링"
+                return [1, 0, 1]
             }
             else if(toValue==="일급"){
-                return "연봉-일급 form 렌더링"
+                return [0, 0, 1]
             }
             else if(toValue==="주급"){
-                return "연봉-주급 form 렌더링"
+                return [0, 1, 1]
             }
             else if(toValue==="월급"){
-                return "연봉-월급 form 렌더링"
+                return [0, 0, 0]
             }
         }
     }
 
 
-    static test2 (fromValue, toValue) { //계산하기 버튼 누를 때 실행되게
+    static doCalcul (fromValue, toValue, payValue, dayValue, weekValue, monthValue) { //계산하기 버튼 누를 때 실행되게
+        var result = 0;
+
         if(fromValue===toValue){
-            return "fromValue와 toValue가 같습니다."
+            //alert("fromValue와 toValue가 같습니다.")
+            return result
         }
         
         if(fromValue==="시급"){
             if(toValue==="일급"){
-                return "시급-일급 form 렌더링"
+                result = payValue * dayValue;
+                return result
             }
             else if(toValue==="주급"){
-                return "시급-주급 form 렌더링"
+                result = payValue * dayValue * weekValue;
+                return result
             }
             else if(toValue==="월급"){
-                return "시급-월급 form 렌더링"
+                result = payValue * dayValue * monthValue;
+                return result
             }
             else if(toValue==="연봉"){
-                return "시급-연봉 form 렌더링"
+                result = payValue * dayValue * monthValue * 12;
+                return result
             }
         }
         else if(fromValue==="일급"){
             if(toValue==="시급"){
-                return "일급-시급 form 렌더링"
+                result = payValue / dayValue;
+                result = Math.round(result);
+                return result
             }
             else if(toValue==="주급"){
-                return "일급-주급 form 렌더링"
+                result = payValue * weekValue;
+                return result
             }
             else if(toValue==="월급"){
-                return "일급-월급 form 렌더링"
+                result = payValue * monthValue;
+                return result
             }
             else if(toValue==="연봉"){
-                return "일급-연봉 form 렌더링"
+                result = payValue * monthValue * 12;
+                return result
             }
         }
         else if(fromValue==="주급"){
             if(toValue==="시급"){
-                return "주급-시급 form 렌더링"
+                result = payValue / (dayValue * weekValue);
+                result = Math.round(result);
+                return result
             }
             else if(toValue==="일급"){
-                return "주급-일급 form 렌더링"
+                result = payValue / weekValue;
+                result = Math.round(result);
+                return result
             }
             else if(toValue==="월급"){
-                return "주급-월급 form 렌더링"
+                result = (payValue / weekValue);
+                result = Math.round(result);
+                result = result * monthValue;
+                return result
             }
             else if(toValue==="연봉"){
-                return "주급-연봉 form 렌더링"
+                result = (payValue / weekValue);
+                result = Math.round(result);
+                result = result * monthValue * 12;
+                return result
             }
         }
         else if(fromValue==="월급"){
             if(toValue==="시급"){
-                return "월급-시급 form 렌더링"
+                result = payValue / (dayValue * monthValue);
+                result = Math.round(result);
+                return result
             }
             else if(toValue==="일급"){
-                return "월급-일급 form 렌더링"
+                result = payValue / monthValue;
+                result = Math.round(result);
+                return result
             }
             else if(toValue==="주급"){
-                return "월급-주급 form 렌더링"
+                result = (payValue / monthValue) * weekValue;
+                result = Math.round(result);
+                return result
             }
             else if(toValue==="연봉"){
-                return "월급-연봉 form 렌더링"
+                result = payValue * 12;
+                return result
             }
         }
         else if(fromValue==="연봉"){
             if(toValue==="시급"){
-                return "연봉-시급 form 렌더링"
+                result = payValue / (dayValue * monthValue * 12)
+                result = Math.round(result);
+                return result
             }
             else if(toValue==="일급"){
-                return "연봉-일급 form 렌더링"
+                result = payValue / (monthValue * 12)
+                result = Math.round(result);
+                return result
             }
             else if(toValue==="주급"){
-                return "연봉-주급 form 렌더링"
+                result = (payValue / (monthValue * 12)) * weekValue;
+                result = Math.round(result);
+                return result
             }
             else if(toValue==="월급"){
-                return "연봉-월급 form 렌더링"
+                result = payValue / 12;
+                result = Math.round(result);
+                return result
             }
         }
+
     }
 }
