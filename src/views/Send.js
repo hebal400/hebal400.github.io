@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getParsedData } from '../actions';
+import "./css/Send.css"
 
 export default class Send extends Component {
 
@@ -20,7 +21,7 @@ export default class Send extends Component {
           test: data.parsedData.title
         })
       }
-      
+
     });
   }
 
@@ -37,17 +38,13 @@ export default class Send extends Component {
       //   }
       // })
 
-      let res = await window.Kakao.API.request({
+      let res = await
+     window.Kakao.API.request({
         url: '/v2/api/talk/memo/default/send',
         data: {
           'template_object': {
             'object_type': 'text',
-            'text': `근무시간: 주 5일(상의 후결정)
-시급: 6000원,
-추가내용: 최저도 안주네 ㅡㅡ
-테스트 한직
-오 되네?
-            `,
+            'text': `근무시간:시간`,
             'link': {
               'web_url': 'https://www.naver.com',
               'mobile_web_url': 'https://www.daum.net'
@@ -66,26 +63,44 @@ export default class Send extends Component {
         <div>
           <div id="working">
             <label htmlFor="working-hour" className="label">
+              <span className="labelTitle">
               근무시간
-              <input name="working-hour" className="text working-hour" />
+              </span>
+              <div className="txtWrap">
+                <input name="working-hour" className="text working-hour" />
+                <span className="time hour">시간</span>
+                <input name="working-hour" className="text working-hour" />
+                <span className="time minute">분</span>
+              </div>
             </label>
-            <br />
 
             <label htmlFor="pay" className="label">
+              <span className="labelTitle">
               급여
-              <input name="pay" className="text pay" />
+              </span>
+              <div className="txtWrap">
+                <input name="pay" className="text pay" />
+                <span className="won">원</span>
+              </div>
             </label>
-            <br />
 
             <label type="number" htmlFor="callnumber" className="label">
+              <span className="labelTitle">
               연락처
-              <input name="callnumber" className="text callnumber" />
+              </span>
+              <div className="txtWrap">
+                <input name="callnumber" className="text callnumber" />
+              </div>
             </label>
-            <br />
 
             <label htmlFor="more-details" className="label">
+              <span className="labelTitle">
               추가메모
-              <input type="text" name="more-details" id="more-details" />
+              </span>
+              <br />
+              <div className="textarea">
+                <textarea type="text" name="more-details" rows="20" id="more-details" />
+              </div>
             </label>
 
           </div>
