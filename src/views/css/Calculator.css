@@ -1,31 +1,8 @@
-.container {
-    width: 300px;
-    height: 500px;
-    background-color: #ffffff;
-    position: relative;
-}
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic");
 
-.menubar{
-    width: 300px;
-    height: 60px;
-    background-color: #DCDCDC;
-}
 
-.menufont{
-    font-size: 0.85em;
-    color: #FFFFFF;
-}
-
-#talkfont{
-    padding: 3px 5px 2px 6px;
-}
-
-#payfont{
-    padding: 3px 0 2px 0;
-}
-
-#loginfont{
-    padding: 3px 5px 2px 12px;
+.wrap {
+    margin: auto;
 }
 
 ul{
@@ -34,34 +11,19 @@ ul{
     padding: 0;
 }
 
-#menuul li{
-    float: left;
-    margin: 10px 5px 5px 0px;
-}
-
-.logo{
-    width: 70px;
-    height: 40px;
-    background-image: url("albatalklogo.png");
-    margin: auto;
-}
-
-.menubtn{ /* 메뉴의 버튼들 */
-    width: 60px;
-    height: 20px;
-    background-color: #353646;
-    padding: 10px 5px 10px 5px;
-    border-radius: 20px;
-}
-
 .typearea{
     width: 100%;
     height: 100px;
     background-color: #ffffff;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 p{
     margin: 0;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 #lowestpay{
@@ -70,7 +32,8 @@ p{
 
 #fromtoul{
     padding: 15px 30px;
-    margin: 0 25px;
+    margin: auto;
+    text-align: center;
 }
 
 #fromtoul li{
@@ -89,8 +52,18 @@ p{
     color: black;
 }
 
+#formul{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #formul li{
     padding: 15px 5px 0px 15px;
+    display: inline-block;
+    width: 300px;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 li input{
@@ -101,37 +74,57 @@ li input{
     height: auto;
     width: 110px;
     float: left;
+    font-weight: 600;
+}
+
+.formarea input{
+    border-radius: 5px;
+}
+
+.formarea input:focus { 
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 0 #ffffff;
 }
 
 .calculbtn{
     width: 100px;
     height: 40px;
     background-color: #353646;
-    margin: 30px 50px 0 100px;
+    margin: 30px auto;
     border-radius: 5px;
 }
 
 .calculbtn p{
-    padding: 11px 20px 0 22px;
+    padding: 11px 18px 0 20px;
     color: #ffffff;
 }
 
 .resultarea{
     width: 100%;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #resultul{
-    margin: 10px 30px 10px 30px;
+    margin: 10px 30px 30px 30px;
     padding: 5px 2px 0 18px;
+    text-align: center;
 }
 
 #resultul li{
-    float: left;
     margin: 0 5px 0 0;
+    display: inline-block;
 }
 
 #resultpay{
     font-size: 1.2em;
     color: #353646;
+}
+
+#warn{
+    text-align: center;
+    font-size: 0.85em;
 }

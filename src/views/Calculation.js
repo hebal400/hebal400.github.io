@@ -83,6 +83,7 @@ export default class Calculation {
 
         if(fromValue===toValue){
             //alert("fromValue와 toValue가 같습니다.")
+            result = payValue;
             return result
         }
         

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import "./css/Calculator.css"
+import "../css/Calculator.css"
 
-import Calculation from './Calculation';
+import Calculation from '../Calculation';
 
 export default class Calculator extends Component {
 
@@ -109,7 +109,7 @@ export default class Calculator extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wrap">
       <div className="typearea"> 
             <p id="lowestpay">2019년의 최저임금은 8,350원입니다.</p>
             <ul id="fromtoul">
@@ -165,6 +165,8 @@ export default class Calculator extends Component {
                 <li><p id="resultpay"><b>{this.state.resultPay}</b></p></li>
                 <li><p>원 입니다.</p></li>
             </ul>
+
+            <p id="warn">정확한 급여는 고용주와 상의하시길 바랍니다.</p>
 
         </div>
       </div>

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
-import Login from './views/Login';
-import Main from './views/Main';
+import Login from './views/screen/Login';
+import Main from './views/screen/Main';
 import Loading from './views/component/Loading';
-import Settings from './views/Setting';
+import Settings from './views/screen/Setting';
 
 class App extends Component {
 
