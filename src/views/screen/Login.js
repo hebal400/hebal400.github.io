@@ -4,9 +4,10 @@
  */
 
 import React, { Component } from 'react'
-import Settings from './component/Settings'
+import Settings from '../component/Settings'
 import { Redirect, Link } from 'react-router-dom';
-import './css/Login.css';
+import '../css/Login.css';
+import Logo from '../../images/logo.jpg';
 
 export default class Login extends Component {
     constructor(props) {
@@ -42,7 +43,7 @@ export default class Login extends Component {
                 />
             </Link>
             
-            <div className="image-dummy">&lt;이미지 테스트에오&gt;</div>
+            <div className="logo" style={{backgroundImage: `url(${Logo})`}}></div>
             <div className="kakao-login-btn"></div>
         </div>
         )

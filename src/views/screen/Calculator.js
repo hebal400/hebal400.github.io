@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import "./css/Calculator.css"
+import "../css/Calculator.css"
 
-import Calculation from './Calculation';
+import Calculation from '../Calculation';
 
 export default class Calculator extends Component {
 
@@ -11,6 +11,17 @@ export default class Calculator extends Component {
     this.state = {
       fromValue: "시급",
       toValue: "월급",
+
+      needDay: 1,
+      needWeek: 0,
+      needMonth: 1,
+
+      payValue: null,
+      dayValue: null,
+      weekValue: null,
+      monthValue: null,
+
+      resultPay: 0,
     }
   }
 
@@ -25,25 +36,80 @@ export default class Calculator extends Component {
   }
 
   compareValues = () => {
-
-    let {fromValue, toValue} = this.state;
-    console.log(fromValue, toValue)
-    if(fromValue === toValue) alert('둘이 같아오');
-    console.log(this.state.fromValue, this.state.toValue);
-    //console.log(Calculation.test(this.state.fromValue, this.state.toValue)); 
+    let {fromValue, toValue, needDay, needWeek, needMonth} = this.state;
+    var renderingState = Calculation.renderingForms(fromValue, toValue);
+    needDay = renderingState[0];
+    needWeek = renderingState[1];
+    needMonth = renderingState[2];
+    this.setState({needDay, needWeek, needMonth}, this._renderDay, this._renderWeek, this._renderMonth)
   }
 
-  _renderMonth = () => (this.state.toValue !== '월급')
+
+  changepayValueState = event => {
+    this.setState({
+        payValue: event.currentTarget.value
+    })
+  }
+
+  changedayValueState = event => {
+      this.setState({
+          dayValue: event.currentTarget.value
+      })
+  }
+
+  changeweekValueState = event => {
+      this.setState({
+          weekValue: event.curruntTarget.value
+      })
+  }
+
+  changemonthValueState = event => {
+    this.setState({
+        monthValue: event.currentTarget.value
+    })
+}
+
+  clickCalBtn = () => {
+    let {fromValue, toValue, payValue, dayValue, weekValue, monthValue, resultPay} = this.state;
+    var result = Calculation.doCalcul(fromValue, toValue, payValue, dayValue, weekValue, monthValue);
+    console.log(result);
+    this.setState({
+        resultPay: result
+    })
+  }
+
+  _renderDay = () => (this.state.needDay === 1)
+  ? (
+    <li>
+        <a href="#dayworktime"><label htmlFor="dayworktime" className="title">일일 근무 시간</label></a>
+        <input type="text" id="dayworktime" 
+            value={this.state.dayValue} 
+            onChange={this.changedayValueState}/>시간
+    </li>
+  ) : null
+
+  _renderWeek = () => (this.state.needWeek === 1)
+  ? (
+    <li>
+        <a href="#weekworkday"><label htmlFor="weekworkday" className="title">한 주 근무일 수</label></a>
+        <input type="text" id="weekworkday" 
+            value={this.state.weekValue}
+            onChange={this.changeweekValueState}/>일
+    </li>
+  ) : null
+
+  _renderMonth = () => (this.state.needMonth === 1)
   ? (
       <li>
           <a href="#monthworkday"><label htmlFor="monthworkday" className="title">한 달 근무일 수</label></a>
-          <input type="text" id="monthworkday" />일
+          <input type="text" id="monthworkday" value={this.state.monthValue} onChange={this.changemonthValueState}/>일
       </li>
   ) : null
 
+
   render() {
     return (
-      <div>
+      <div className="wrap">
       <div className="typearea"> 
             <p id="lowestpay">2019년의 최저임금은 8,350원입니다.</p>
             <ul id="fromtoul">
@@ -78,20 +144,16 @@ export default class Calculator extends Component {
             <ul id="formul">
                 <li>
                     <a href="#pay"><label htmlFor="pay" className="title">{this.state.fromValue}</label></a>
-                    <input type="text" id="pay" autoFocus="checked" />원
+                    <input type="text" id="pay" autoFocus="checked" 
+                        value = {this.state.payValue}
+                        onChange={this.changepayValueState}/>원
                 </li>
-                <li>
-                    <a href="#dayworktime"><label htmlFor="dayworktime" className="title">일일 근무 시간</label></a>
-                    <input type="text" id="dayworktime" />시간
-                </li>
-                <li>
-                    <a href="#weekworkday"><label htmlFor="weekworkday" className="title">한 주 근무일 수</label></a>
-                    <input type="text" id="weekworkday" />일
-                </li>
+                {this._renderDay()}
+                {this._renderWeek()}
                 {this._renderMonth()}
                 
             </ul>
-            <div className="calculbtn">
+            <div className="calculbtn" onClick = {this.clickCalBtn}>
                 <p>계산하기</p>
             </div>
         </div>
@@ -100,7 +162,7 @@ export default class Calculator extends Component {
 
             <ul id="resultul">
                 <li><p>예상 {this.state.toValue}은</p></li>
-                <li><p id="resultpay"><b>11,050</b></p></li>
+                <li><p id="resultpay"><b>{this.state.resultPay}</b></p></li>
                 <li><p>원 입니다.</p></li>
             </ul>
 

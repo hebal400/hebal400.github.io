@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route, Redirect, NavLink } from 'react-router-dom';
 import { IoIosClipboard, IoIosCalculator } from 'react-icons/io';
 // import 'https://fonts.googleapis.com/css?family=Jua';
-import './css/Main.css';
-import Profile from './Profile';
+import '../css/Main.css';
+import Profile from '../component/Profile';
 import Send from './Send';
 import Calculator from './Calculator';
 

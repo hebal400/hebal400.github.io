@@ -26,9 +26,10 @@ button:focus {
     outline: 0;
 }
 
-.image-dummy {
-    background-color: skyblue;
-    width: 160px;
-    height: 160px;
+.login > .logo {
+    width: 300px;
+    height: 300px;
     margin: 50px 0;
+    background-repeat: no-repeat;
+    background-position: center;
 }

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { LogOutButton, BackButton } from './component';
+import { LogOutButton, BackButton } from '../component';
 import { Redirect } from 'react-router-dom';
 
-import './css/Settings.css';
+import '../css/Settings.css';
+import Modal from '../component/Modal';
 
 export default class Setting extends Component {
     constructor(props) {
@@ -10,6 +11,7 @@ export default class Setting extends Component {
 
         this.state = {
             isLogin: props.location.state.isLogin,
+            isShowModal: false,
             redirect: false
         }
     }
@@ -34,9 +36,11 @@ export default class Setting extends Component {
         </span>
     ) : null)
 
+    setModalState = () => {
+        this.setState({isShowModal: true})
+    }
+
     render() {
-        
-        console.log(this.state.isLogin)
         if(this.state.redirect) return <Redirect to="/login" />
 
         return (
@@ -46,13 +50,22 @@ export default class Setting extends Component {
                 <span className="settings-header-title">설정</span>
             </header>
             <div className="settings-list">
-                <div className="settings-list-item">
+                <div className="settings-list-item" onClick={this.setModalState}>
                     <span className="settings-list-item-title">개발자 소개</span>
                 </div>
             </div>
             <footer className="settings-footer">
                 { this._renderLoginButton() } 
             </footer>
+            <Modal 
+                isShow={this.state.isShowModal}
+                width={335} 
+                height={200}
+                backgroundColor="#ffffff"
+                className="settings-modal"
+            >
+                <div> test </div>
+            </Modal>
         </div>
         )
     }
