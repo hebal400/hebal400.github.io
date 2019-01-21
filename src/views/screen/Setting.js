@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { LogOutButton, BackButton } from './component';
+import { LogOutButton, BackButton } from '../component';
 import { Redirect } from 'react-router-dom';
 
-import './css/Settings.css';
+import '../css/Settings.css';
 
 export default class Setting extends Component {
     constructor(props) {
@@ -35,8 +35,6 @@ export default class Setting extends Component {
     ) : null)
 
     render() {
-        
-        console.log(this.state.isLogin)
         if(this.state.redirect) return <Redirect to="/login" />
 
         return (

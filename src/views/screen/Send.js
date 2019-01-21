@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { getParsedData } from '../actions';
-import "./css/Send.css"
+import { getParsedData } from '../../actions';
+import "../css/Send.css"
 
 export default class Send extends Component {
 

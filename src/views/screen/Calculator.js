@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import "./css/Calculator.css"
+import "../css/Calculator.css"
 
-import Calculation from './Calculation';
+import Calculation from '../Calculation';
 
 export default class Calculator extends Component {
 
