@@ -43,6 +43,10 @@
     border-bottom: 0.5px solid #e7e7e7;
 }
 
+.settings-list > .settings-list-item:hover {
+    cursor: pointer;
+}
+
 .settings-list > .settings-list-item > .settings-list-item-title {
     margin: 0px 15px;
 }
