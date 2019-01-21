@@ -26,7 +26,8 @@
   text-align: right;
   margin-right: 16px;
   flex: 0 1 60px;
-  font-size: 16px;
+  font-size: 12pt;
+  height: 100%;
 }
 
 .working-hour {
@@ -118,4 +119,20 @@ input {
 .send-footer {
   flex: 0 1 50px;
   border-top: 0.5px solid #d7d7d7;
+}
+
+.paylabel {
+  height: 100%;
+}
+
+.pay-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  border: 0;
+  height: 30px;
+  text-align: right;
+  border-radius: 0;
+  font-size: 12pt;
 }

@@ -96,8 +96,8 @@ export default class Send extends Component {
             </label>
 
             <label htmlFor="pay" className="label">
-              <span className="labelTitle">
-                <select value={this.state.payType}>
+              <span className="labelTitle paylabel">
+                <select value={this.state.payType} className="pay-select">
                   <option value="시급">시급</option>
                   <option value="일급">일급</option>
                   <option value="주급">주급</option>
