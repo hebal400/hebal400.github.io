@@ -109,7 +109,7 @@ export default class Calculator extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wrap">
       <div className="typearea"> 
             <p id="lowestpay">2019년의 최저임금은 8,350원입니다.</p>
             <ul id="fromtoul">
