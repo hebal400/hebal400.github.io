@@ -4,10 +4,10 @@
  */
 
 import React, { Component } from 'react'
-import Settings from './component/Settings'
+import Settings from '../component/Settings'
 import { Redirect, Link } from 'react-router-dom';
-import './css/Login.css';
-import Logo from '../images/logo.jpg';
+import '../css/Login.css';
+import Logo from '../../images/logo.jpg';
 
 export default class Login extends Component {
     constructor(props) {

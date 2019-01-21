@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './css/Profile.css';
-import { SettingsButton } from './component';
+import '../css/Profile.css';
+import { SettingsButton } from '../component';
 import { Link } from 'react-router-dom';
 
 export default class Profile extends Component {

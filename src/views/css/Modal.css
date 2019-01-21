@@ -1,0 +1,22 @@
+.settings-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    box-shadow: 0 8px 16px #d7d7d7;
+    border: 0.5px solid #e7e7e7;
+    border-radius: 8px;
+    padding: 8px;
+}   
+
+.modal-btn-exit {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+
+.modal-btn-exit:hover {
+    cursor: pointer;
+}
