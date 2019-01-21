@@ -21,7 +21,7 @@ export default class Main extends Component {
     let { match } = this.props;
     if(!this.state.isLogin) return <Redirect to="/login" />
     return (
-        <div>
+        <div className="main-container">
           <Profile kakaoLogOut={this.kakaoLogOut} />
           <ul className="main-tabs">
             <li className="main-tabs-item">
