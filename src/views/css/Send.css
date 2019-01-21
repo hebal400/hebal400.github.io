@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 
+.working-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 #working {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color:#f7f7f7;
+  flex: 1;
 }
 
 .label {
@@ -37,7 +43,8 @@
 .txtWrap {
   flex: 1;
   display: flex;
-  flex-wrap:wrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
   text-align: center;
 }
 
@@ -57,37 +64,58 @@
   font-size: 16px;
 }
 
+.detail-container {
+  flex: 1;
+}
+
 .textarea {
-  text-align: center;
+  flex: 1;
+  display: flex;
+  height: 100%;
 }
 
 .input-text {
   background-color: #ffffff;
   padding: 8px;
-  box-shadow: 0 2px 8px #d7d7d7;
+  /* box-shadow: 0 2px 8px #d7d7d7; */
   border-radius: 16px;
   display: flex;
-  flex: 0 1 100%;
-  margin-right: 16px;
+  flex: 1;
+  align-items: center;
 }
 
 .working-text {
   flex: 1;
+  display: flex;
 }
 
-#more-details {
-  height: 220px;
-  border: 1px solid black;
-  padding: 5px;
-  font-size: 16px;
+.working-detail {
+  flex: 0 1 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.more-details {
+  /* border: 1px solid black; */
+  border: 0;
+  padding: 8px;
+  border-radius: 16px;
+  font-size: 10pt;
+  flex: 1;
   resize: none;
 }
 
-input:focus {
+input:focus,textarea:focus, select:focus {
   outline: none;
 }
 
 input {
   border: 0;
   border-bottom: 0.5px solid #e7e7e7;
+}
+
+.send-footer {
+  flex: 0 1 50px;
+  border-top: 0.5px solid #d7d7d7;
 }

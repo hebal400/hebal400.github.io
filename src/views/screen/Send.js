@@ -66,7 +66,7 @@ export default class Send extends Component {
 
   render() {
         return (
-        <div>
+        <div class="working-container">
           <div id="working">
             <label htmlFor="siteTitle" className="label">
               <span className="labelTitle">
@@ -85,10 +85,9 @@ export default class Send extends Component {
               </span>
               <div className="txtWrap">
                 <div className="input-text">
-                  <input name="working-hour" className="working-text working-hour"
-                  value = {this.state.workingHour} />
+                  <input name="working-hour" className="working-text working-hour" value = {this.state.workingHour} />
                 </div>
-                <span className="time hour">시간</span>
+                <span className="working-detail time hour">시간</span>
               </div>
             </label>
 
@@ -106,7 +105,7 @@ export default class Send extends Component {
                 <div className="input-text">
                   <input name="pay" className="working-text pay" value = {this.state.pay} />
                 </div>
-                <span className="won">원</span>
+                <span className="working-detail won">원</span>
               </div>
             </label>
 
@@ -121,19 +120,23 @@ export default class Send extends Component {
               </div>
             </label>
 
-            <span className="labelTitle">
+            
+            <label htmlFor="more-details" className="label detail-container">
+              <span className="labelTitle">
               추가메모
               </span>
-            <label htmlFor="more-details" className="label">
               <br />
               <div className="textarea">
-                <textarea type="text" id="more-details" rows="20" id="more-details" />
+                <textarea type="text" id="more-details" className="more-details" placeholder="추가 메모는 50자까지 입력가능합니다." />
               </div>
             </label>
 
           </div>
-          <button onClick={this.sendTest}>내게보내기 테스트</button>
-          <div>{this.state.test}</div>
+          <footer className="send-footer">
+            <button onClick={this.sendTest}>내게보내기 테스트</button>
+            <div>{this.state.test}</div>
+          </footer>
+          
         </div>
         )
   }

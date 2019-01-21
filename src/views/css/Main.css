@@ -23,6 +23,11 @@
   vertical-align: text-bottom;
 } */
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 .main-tabs {
     background-color: #ffffff;
     margin: 0;
