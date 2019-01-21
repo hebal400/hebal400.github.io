@@ -166,6 +166,8 @@ export default class Calculator extends Component {
                 <li><p>원 입니다.</p></li>
             </ul>
 
+            <p id="warn">정확한 급여는 고용주와 상의하시길 바랍니다.</p>
+
         </div>
       </div>
     )
