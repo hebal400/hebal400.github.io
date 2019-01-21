@@ -77,7 +77,9 @@ export default class Send extends Component {
               제목
               </span>
               <div className="txtWrap">
-                <input name="siteTitle" className="text siteTitle" value = {this.state.siteTitle}/>
+                <div className="input-text">
+                  <input name="siteTitle" className="working-text siteTitle" value = {this.state.siteTitle}/>
+                </div>
               </div>
             </label>
 
@@ -86,8 +88,10 @@ export default class Send extends Component {
               근무시간
               </span>
               <div className="txtWrap">
-                <input name="working-hour" className="text working-hour"
-                value = {this.state.workingHour} />
+                <div className="input-text">
+                  <input name="working-hour" className="working-text working-hour"
+                  value = {this.state.workingHour} />
+                </div>
                 <span className="time hour">시간</span>
               </div>
             </label>
@@ -103,7 +107,9 @@ export default class Send extends Component {
                 </select>
               </span>
               <div className="txtWrap">
-                <input name="pay" className="text pay" value = {this.state.pay} />
+                <div className="input-text">
+                  <input name="pay" className="working-text pay" value = {this.state.pay} />
+                </div>
                 <span className="won">원</span>
               </div>
             </label>
@@ -113,17 +119,19 @@ export default class Send extends Component {
               주소
               </span>
               <div className="txtWrap">
-                <input name="workingAddress" className="text workingAddress" value = {this.state.workingAddress} />
+                <div className="input-text">
+                  <input name="workingAddress" className="working-text workingAddress" value = {this.state.workingAddress} />
+                </div>
               </div>
             </label>
 
-            <label htmlFor="more-details" className="label">
-              <span className="labelTitle">
+            <span className="labelTitle">
               추가메모
               </span>
+            <label htmlFor="more-details" className="label">
               <br />
               <div className="textarea">
-                <textarea type="text" name="more-details" rows="20" id="more-details" />
+                <textarea type="text" id="more-details" rows="20" id="more-details" />
               </div>
             </label>
 
