@@ -50,8 +50,8 @@ export default class Setting extends Component {
                 <span className="settings-header-title">설정</span>
             </header>
             <div className="settings-list">
-                <div className="settings-list-item">
-                    <span className="settings-list-item-title" onClick={this.setModalState}>개발자 소개</span>
+                <div className="settings-list-item" onClick={this.setModalState}>
+                    <span className="settings-list-item-title">개발자 소개</span>
                 </div>
             </div>
             <footer className="settings-footer">
