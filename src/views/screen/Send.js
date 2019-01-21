@@ -8,7 +8,12 @@ export default class Send extends Component {
     super(props);
 
     this.state = {
-      test:'안들어왔어요'
+      siteTitle: null,
+      workingHour: 0,
+      payType: "시급",
+      pay: 0,
+      workingAddress: null,
+      addMemo: null,
     }
   }
 
@@ -18,7 +23,12 @@ export default class Send extends Component {
       console.log(data);
       if(data.result) {
         this.setState({
-          test: data.parsedData.title
+          siteTitle: data.parsedData.title,
+          workingHour: data.parsedData.workingTime,
+          payType: data.parsedData.payType,
+          pay: data.parsedData.pay,
+          workingAddress: data.parsedData.workingAddress,
+          addMemo: null,
         })
       }
 
@@ -44,7 +54,7 @@ export default class Send extends Component {
         data: {
           'template_object': {
             'object_type': 'text',
-            'text': `근무시간:시간`,
+            'text': `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.pay}${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}추가메모: ${this.state.addMemo}`,
             'link': {
               'web_url': 'https://www.naver.com',
               'mobile_web_url': 'https://www.daum.net'
@@ -62,15 +72,23 @@ export default class Send extends Component {
         return (
         <div>
           <div id="working">
+            <label htmlFor="siteTitle" className="label">
+              <span className="labelTitle">
+              제목
+              </span>
+              <div className="txtWrap">
+                <input name="siteTitle" className="text siteTitle" value = {this.state.siteTitle}/>
+              </div>
+            </label>
+
             <label htmlFor="working-hour" className="label">
               <span className="labelTitle">
               근무시간
               </span>
               <div className="txtWrap">
-                <input id="working-hour" name="working-hour" className="text working-hour" />
+                <input name="working-hour" className="text working-hour"
+                value = {this.state.workingHour} />
                 <span className="time hour">시간</span>
-                <input name="working-hour" className="text working-hour" />
-                <span className="time minute">분</span>
               </div>
             </label>
 
@@ -79,17 +97,17 @@ export default class Send extends Component {
               급여
               </span>
               <div className="txtWrap">
-                <input id="pay" className="text pay" />
+                <input name="pay" className="text pay" value = {this.state.pay} />
                 <span className="won">원</span>
               </div>
             </label>
 
-            <label type="number" htmlFor="callnumber" className="label">
+            <label htmlFor="workingAddress" className="label">
               <span className="labelTitle">
-              연락처
+              주소
               </span>
               <div className="txtWrap">
-                <input id="callnumber" className="text callnumber" />
+                <input name="workingAddress" className="text workingAddress" value = {this.state.workingAddress} />
               </div>
             </label>
 
