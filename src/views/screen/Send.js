@@ -67,7 +67,7 @@ export default class Send extends Component {
               근무시간
               </span>
               <div className="txtWrap">
-                <input name="working-hour" className="text working-hour" />
+                <input id="working-hour" name="working-hour" className="text working-hour" />
                 <span className="time hour">시간</span>
                 <input name="working-hour" className="text working-hour" />
                 <span className="time minute">분</span>
@@ -79,7 +79,7 @@ export default class Send extends Component {
               급여
               </span>
               <div className="txtWrap">
-                <input name="pay" className="text pay" />
+                <input id="pay" className="text pay" />
                 <span className="won">원</span>
               </div>
             </label>
@@ -89,17 +89,17 @@ export default class Send extends Component {
               연락처
               </span>
               <div className="txtWrap">
-                <input name="callnumber" className="text callnumber" />
+                <input id="callnumber" className="text callnumber" />
               </div>
             </label>
 
-            <label htmlFor="more-details" className="label">
-              <span className="labelTitle">
+            <span className="labelTitle">
               추가메모
               </span>
+            <label htmlFor="more-details" className="label">
               <br />
               <div className="textarea">
-                <textarea type="text" name="more-details" rows="20" id="more-details" />
+                <textarea type="text" id="more-details" rows="20" id="more-details" />
               </div>
             </label>
 

@@ -4,46 +4,42 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5px;
+  background-color:#f7f7f7;
 }
 
 .label {
-  font-family: 'Nanum Gothic', sans-serif;
+  /* font-family: 'Nanum Gothic', sans-serif; */
   color: #353645;
-  width: 300px;
-  padding: 5px 15px;
+  display: flex;
+  width: calc(100% - 16px);
+  margin: 0 8px;
 }
 
 .labelTitle {
-  display: inline-block;
-  text-align: right;
-  width: 90px;
-  font-size: 20px;
-  font-weight: 700;
+  text-align: left;
+  flex: 0 1 50px;
+  font-size: 14px;
 }
 
 .working-hour {
-  width: 40px;
-  margin-left: 4px;
-  margin-right: 3px;
   font-size: 16px;
-  padding: 0 5px;
-  text-align: right;
+  flex: 1;
+  /* text-align: right; */
 }
 
 .time {
   font-size: 15px;
+  flex: 1;
 }
 
 .txtWrap {
-  display: inline-block;
-  width: 180px;
+  flex: 2;
+  display: flex;
+  flex-wrap:wrap;
   text-align: center;
 }
 
 .pay {
-  width: 120px;
-  padding: 0 5px;
   text-align: right;
   font-size: 16px;
 }
@@ -53,22 +49,29 @@
 }
 
 .callnumber {
-  width: 140px;
+  /* width: 140px; */
   padding: 0 5px;
   text-align: right;
   font-size: 16px;
 }
 
 .textarea {
-  margin-top: 10px;
   text-align: center;
 }
 
 #more-details {
-  width: 240px;
   height: 220px;
   border: 1px solid black;
   padding: 5px;
   font-size: 16px;
   resize: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+input {
+  border: 0;
+  border-bottom: 0.5px solid #e7e7e7;
 }

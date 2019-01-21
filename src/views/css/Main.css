@@ -1,13 +1,13 @@
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
-}
+} */
 
-#wrap {
+/* #wrap {
   width: 300px;
   text-align: center;
-  /*height: 500px; */
-  /* background-color: #eeeeee; */
+  height: 500px;
+  background-color: #eeeeee;
   margin: auto;
 }
 
@@ -21,7 +21,7 @@
   width: 170px;
   height: 23px;
   vertical-align: text-bottom;
-}
+} */
 
 .main-tabs {
     background-color: #ffffff;
