@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { getParsedData } from '../../actions';
-import "../css/Send.css"
+import { getParsedData } from '../actions';
+import "./css/Send.css"
 
 export default class Send extends Component {
 
@@ -35,14 +35,18 @@ export default class Send extends Component {
     });
   }
 
-  // changesiteTitle = event => {
-  //   let siteTitle = event.
-  // }
-
-
-
   sendTest = async () => {
     try {
+      // let res = await window.Kakao.API.request({
+      //   url: '/v2/api/talk/memo/send',
+      //   data: {
+      //     'template_id': 14322,
+      //     'args': JSON.stringify({
+      //       'title': "파워테스트",
+      //       'description': "실화냐.."
+      //     })
+      //   }
+      // })
 
       let res = await
      window.Kakao.API.request({
@@ -50,7 +54,7 @@ export default class Send extends Component {
         data: {
           'template_object': {
             'object_type': 'text',
-            'text': `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.payType} ${this.state.pay}${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}추가메모: ${this.state.addMemo}`,
+            'text': `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여:${this.state.pay}${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}추가메모: ${this.state.addMemo}`,
             'link': {
               'web_url': 'https://www.naver.com',
               'mobile_web_url': 'https://www.daum.net'
@@ -73,9 +77,7 @@ export default class Send extends Component {
               제목
               </span>
               <div className="txtWrap">
-                <div className="input-text">
-                  <input name="siteTitle" className="working-text siteTitle" value = {this.state.siteTitle}/>
-                </div>
+                <input name="siteTitle" className="text siteTitle" value = {this.state.siteTitle}/>
               </div>
             </label>
 
@@ -84,28 +86,25 @@ export default class Send extends Component {
               근무시간
               </span>
               <div className="txtWrap">
-                <div className="input-text">
-                  <input name="working-hour" className="working-text working-hour"
-                  value = {this.state.workingHour} />
-                </div>
+                <input name="working-hour" className="text working-hour"
+                value = {this.state.workingHour} />
                 <span className="time hour">시간</span>
               </div>
             </label>
 
             <label htmlFor="pay" className="label">
               <span className="labelTitle">
-                <select value={this.state.payType}>
+              급여
+              </span>
+              <div className="txtWrap">
+                <select onChange={this.getParsedData} defaultValue={this.state.payType}>
                   <option value="시급">시급</option>
                   <option value="일급">일급</option>
                   <option value="주급">주급</option>
                   <option value="월급">월급</option>
                   <option value="연봉">연봉</option>
                 </select>
-              </span>
-              <div className="txtWrap">
-                <div className="input-text">
-                  <input name="pay" className="working-text pay" value = {this.state.pay} />
-                </div>
+                <input name="pay" className="text pay" value = {this.state.pay} />
                 <span className="won">원</span>
               </div>
             </label>
@@ -115,19 +114,17 @@ export default class Send extends Component {
               주소
               </span>
               <div className="txtWrap">
-                <div className="input-text">
-                  <input name="workingAddress" className="working-text workingAddress" value = {this.state.workingAddress} />
-                </div>
+                <input name="workingAddress" className="text workingAddress" value = {this.state.workingAddress} />
               </div>
             </label>
 
-            <span className="labelTitle">
+            <label htmlFor="more-details" className="label">
+              <span className="labelTitle">
               추가메모
               </span>
-            <label htmlFor="more-details" className="label">
               <br />
               <div className="textarea">
-                <textarea type="text" id="more-details" rows="20" id="more-details" />
+                <textarea type="text" name="more-details" rows="20" id="more-details" />
               </div>
             </label>
 
