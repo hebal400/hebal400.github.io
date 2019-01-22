@@ -3,6 +3,7 @@ import { getParsedData } from '../../actions';
 import "../css/Send.css"
 
 import MeAppIcon from '../../images/me_appicon_kr.png';
+import LinkIcon from '../../images/kakaolink_btn_small_ov.png';
 
 export default class Send extends Component {
 
@@ -102,14 +103,17 @@ export default class Send extends Component {
   }
 
   sendToMeButton = () => (
-    <button onClick={this.sendTest} className="btn-send-to-me">
-      <img src={MeAppIcon} />
+    <button onClick={this.sendTest} className="kakao-link-btn">
+      <img src={MeAppIcon} alt="내게 보내기"/>
       <span>내게 보내기</span>
     </button>
   )
 
   sendLinkButton = () => (
-    <div className="kakao-link-btn" onClick={this.sendLink}>테스트</div>
+    <button className="kakao-link-btn" onClick={this.sendLink}>
+      <img src={LinkIcon} alt="친구에게 공유하기" />
+      <span>친구에게 공유하기</span>
+    </button>
   )
 
   sendLink = () => {

@@ -70,7 +70,7 @@ export default class Calculator extends Component {
 }
 
   clickCalBtn = () => {
-    let {fromValue, toValue, payValue, dayValue, weekValue, monthValue, resultPay} = this.state;
+    let {fromValue, toValue, payValue, dayValue, weekValue, monthValue} = this.state;
     var result = Calculation.doCalcul(fromValue, toValue, payValue, dayValue, weekValue, monthValue);
     console.log(result);
     this.setState({

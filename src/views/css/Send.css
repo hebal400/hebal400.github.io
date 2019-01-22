@@ -155,10 +155,11 @@ input {
   border-top: 0.5px solid #d7d7d7;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 4px 8px 0px 8px;
 }
 
-.btn-send-to-me {
+.kakao-link-btn {
   border: 0;
   background-color: #e7e7e7;
   display: flex;
@@ -166,16 +167,16 @@ input {
   justify-content: flex-start;
 }
 
-.btn-send-to-me > * {
+.kakao-link-btn > * {
   margin: 4px;
 }
-.btn-send-to-me > img {
+.kakao-link-btn > img {
   height: 30px;
 }
-.btn-send-to-me > span {
+.kakao-link-btn > span {
   font-weight: bold;
 }
 
-.btn-send-to-me:hover {
+.kakao-link-btn:hover {
   cursor: pointer;
 }
