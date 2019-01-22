@@ -59,7 +59,7 @@ export default class Calculator extends Component {
 
   changeweekValueState = event => {
       this.setState({
-          weekValue: event.curruntTarget.value
+          weekValue: event.currentTarget.value
       })
   }
 
