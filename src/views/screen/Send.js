@@ -29,8 +29,7 @@ export default class Send extends Component {
           workingHour: data.parsedData.workingTime,
           payType: data.parsedData.payType,
           pay: data.parsedData.pay,
-          workingAddress: data.parsedData.workingAddress,
-          addMemo: null,
+          workingAddress: data.parsedData.workingAddress
         })
       }
 
@@ -109,6 +108,20 @@ export default class Send extends Component {
     </button>
   )
 
+  sendLinkButton = () => (
+    <div className="kakao-link-btn" onClick={this.sendLink}>테스트</div>
+  )
+
+  sendLink = () => {
+    window.Kakao.Link.sendDefault({
+      objectType: 'text',
+      text: `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.payType} ${this.state.pay}${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}추가메모: ${this.state.addMemo}`,
+      link: {
+        'webUrl': 'https://www.naver.com',
+        'mobileWebUrl': 'https://www.daum.net'
+      }
+    })
+  }
   render() {
         return (
         <div class="working-container">
@@ -179,6 +192,7 @@ export default class Send extends Component {
           </div>
           <footer className="send-footer">
             {this.sendToMeButton()}
+            {this.sendLinkButton()}
             <div>{this.state.test}</div>
           </footer>
         </div>
