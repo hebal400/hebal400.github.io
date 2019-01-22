@@ -29,8 +29,7 @@ export default class Send extends Component {
           workingHour: data.parsedData.workingTime,
           payType: data.parsedData.payType,
           pay: data.parsedData.pay,
-          workingAddress: data.parsedData.workingAddress,
-          addMemo: null,
+          workingAddress: data.parsedData.workingAddress
         })
       }
 
@@ -58,8 +57,8 @@ export default class Send extends Component {
             'object_type': 'text',
             'text': `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.pay}${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}추가메모: ${this.state.addMemo}`,
             'link': {
-              'web_url': 'https://www.naver.com',
-              'mobile_web_url': 'https://www.daum.net'
+              'web_url': '/test',
+              'mobile_web_url': '/test'
             }
           }
         }
@@ -72,14 +71,30 @@ export default class Send extends Component {
 
   sendToMeButton = () => (
     <button onClick={this.sendTest} className="btn-send-to-me">
-      <img src={MeAppIcon} />
+      <img src={MeAppIcon} alt="내게 보내기" />
       <span>내게 보내기</span>
     </button>
   )
 
+  sendButton = () => (
+    <div className="send-test" onClick={this.bindSendButton}>df</div>
+  )
+
+  bindSendButton = () => {
+    window.Kakao.Link.sendDefault({
+      objectType: 'text',
+      text: `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.pay}${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}추가메모: ${this.state.addMemo}`,
+      link: {
+        webUrl: 'https://www.naver.com',
+        mobileWebUrl: 'https://www.daum.net'
+      }
+    });
+  }
+
+  
   render() {
         return (
-        <div class="working-container">
+        <div className="working-container">
           <div id="working">
             <label htmlFor="siteTitle" className="label">
               <span className="labelTitle">
@@ -147,6 +162,7 @@ export default class Send extends Component {
           </div>
           <footer className="send-footer">
             {this.sendToMeButton()}
+            {this.sendButton()}
             <div>{this.state.test}</div>
           </footer>
         </div>
