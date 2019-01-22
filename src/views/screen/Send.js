@@ -136,7 +136,7 @@ export default class Send extends Component {
               </span>
               <div className="txtWrap">
                 <div className="input-text">
-                  <input name="siteTitle" className="working-text siteTitle" value = {this.state.siteTitle} onChange={this.changesiteTitle}/>
+                  <input id="siteTitle" className="working-text siteTitle" value = {this.state.siteTitle} onChange={this.changesiteTitle}/>
                 </div>
               </div>
             </label>
@@ -147,7 +147,7 @@ export default class Send extends Component {
               </span>
               <div className="txtWrap">
                 <div className="input-text">
-                  <input name="working-hour" className="working-text working-hour" value = {this.state.workingHour} onChange={this.changeworkingHour} />
+                  <input id="working-hour" className="working-text working-hour" value = {this.state.workingHour} onChange={this.changeworkingHour} />
                 </div>
                 <span className="working-detail time hour">시간</span>
               </div>
@@ -165,7 +165,7 @@ export default class Send extends Component {
               </span>
               <div className="txtWrap">
                 <div className="input-text">
-                  <input name="pay" className="working-text pay" value = {this.pay} onChange={this.changepay} />
+                  <input id="pay" className="working-text pay" value = {this.pay} onChange={this.changepay} />
                 </div>
                 <span className="working-detail won">원</span>
               </div>
@@ -177,7 +177,7 @@ export default class Send extends Component {
               </span>
               <div className="txtWrap">
                 <div className="input-text">
-                  <input name="workingAddress" className="working-text workingAddress" value = {this.state.workingAddress} onChange={this.changeworkingAddress} />
+                  <input id="workingAddress" className="working-text workingAddress" value = {this.state.workingAddress} onChange={this.changeworkingAddress} />
                 </div>
               </div>
             </label>
