@@ -80,15 +80,21 @@ export default class Send extends Component {
   }
 
   sendTest = async () => {
+    var text = `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.payType} ${this.state.pay}원${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}`;
+
+    if (this.state.addMemo !== '') {
+      text += `추가메모: ${this.state.addMemo}`
+    }
     try {
 
       let res = await
+
      window.Kakao.API.request({
         url: '/v2/api/talk/memo/default/send',
         data: {
           'template_object': {
             'object_type': 'text',
-            'text': `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.payType} ${this.state.pay}원${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}추가메모: ${this.state.addMemo}`,
+            'text': text,
             'link': {
               'web_url': 'https://www.naver.com',
               'mobile_web_url': 'https://www.daum.net'
@@ -117,9 +123,15 @@ export default class Send extends Component {
   )
 
   sendLink = () => {
+    var text = `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.payType} ${this.state.pay}${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}`;
+
+    if (this.state.addMemo !== '') {
+      text += `추가메모: ${this.state.addMemo}`;
+    }
+
     window.Kakao.Link.sendDefault({
       objectType: 'text',
-      text: `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.payType} ${this.state.pay}${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}추가메모: ${this.state.addMemo}`,
+      text: text,
       link: {
         'webUrl': 'https://www.naver.com',
         'mobileWebUrl': 'https://www.daum.net'
