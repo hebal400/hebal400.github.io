@@ -2,18 +2,20 @@ import React, { Component } from 'react'
 import { getParsedData } from '../../actions';
 import "../css/Send.css"
 
+import MeAppIcon from '../../images/me_appicon_kr.png';
+
 export default class Send extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      siteTitle: null,
+      siteTitle: '',
       workingHour: 0,
       payType: "시급",
       pay: 0,
-      workingAddress: null,
-      addMemo: null,
+      workingAddress: '',
+      addMemo: '',
     }
   }
 
@@ -100,6 +102,13 @@ export default class Send extends Component {
     }
   }
 
+  sendToMeButton = () => (
+    <button onClick={this.sendTest} className="btn-send-to-me">
+      <img src={MeAppIcon} />
+      <span>내게 보내기</span>
+    </button>
+  )
+
   render() {
         return (
         <div class="working-container">
@@ -128,8 +137,13 @@ export default class Send extends Component {
             </label>
 
             <label htmlFor="pay" className="label">
+<<<<<<< HEAD
               <span className="labelTitle">
                 <select value={this.state.payType} onChange={this.changepayType}>
+=======
+              <span className="labelTitle paylabel">
+                <select value={this.state.payType} className="pay-select">
+>>>>>>> ac630f8272b11cdb56a6f698a935510c2a322842
                   <option value="시급">시급</option>
                   <option value="일급">일급</option>
                   <option value="주급">주급</option>
@@ -169,10 +183,13 @@ export default class Send extends Component {
 
           </div>
           <footer className="send-footer">
-            <button onClick={this.sendTest}>내게보내기 테스트</button>
+            {this.sendToMeButton()}
             <div>{this.state.test}</div>
           </footer>
+<<<<<<< HEAD
 
+=======
+>>>>>>> ac630f8272b11cdb56a6f698a935510c2a322842
         </div>
         )
   }
