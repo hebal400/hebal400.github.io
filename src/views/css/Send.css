@@ -148,7 +148,6 @@ input {
   border-radius: 16px;
   font-size: 10pt;
   padding: 0 8px;
-
 }
 
 .send-footer {
@@ -162,11 +161,14 @@ input {
 
 .kakao-link-btn {
   border: 0;
-  background-color: #e7e7e7;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  box-shadow: 0 2px 8px #e7e7e7;
+  flex: 1;
+}
+
+.kakao-link-btn:nth-child(2n - 1) {
+  border-right: 0.5px solid #e7e7e7;
 }
 
 .kakao-link-btn > * {
