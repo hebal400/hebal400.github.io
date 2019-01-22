@@ -103,6 +103,7 @@ export default class Send extends Component {
   }
 
   sendToMeButton = () => (
+<<<<<<< HEAD
       <button onClick={this.sendTest} className="kakao-link-btn">
         <img src={MeAppIcon} alt="내게 보내기"/>
         <span>내게 보내기</span>
@@ -114,6 +115,19 @@ export default class Send extends Component {
         <img src={LinkIcon} alt="친구에게 공유하기" />
         <span>친구에게 공유하기</span>
       </button>
+=======
+    <button onClick={this.sendTest} className="kakao-link-btn">
+      <img src={MeAppIcon} alt="내게 보내기"/>
+      <span>내게 보내기</span>
+    </button>
+  )
+
+  sendLinkButton = () => (
+    <button className="kakao-link-btn" onClick={this.sendLink}>
+      <img src={LinkIcon} alt="친구에게 공유하기" />
+      <span>친구에게 공유하기</span>
+    </button>
+>>>>>>> 600011df4558c1756afb56375b9452f830df43bc
   )
 
   sendLink = () => {
