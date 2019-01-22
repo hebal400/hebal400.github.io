@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:#dcdcdc;
+  background-color:#e7e7e7;
   flex: 1;
 }
 
@@ -153,7 +153,7 @@ input {
 
 .send-footer {
   flex: 0 1 50px;
-  border-top: 0.5px solid #d7d7d7;
+  border-top: 0.5px solid #e7e7e7;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -166,6 +166,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  box-shadow: 0 2px 8px #e7e7e7;
 }
 
 .kakao-link-btn > * {
