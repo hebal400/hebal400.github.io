@@ -83,6 +83,7 @@
   display: flex;
   flex: 1;
   align-items: center;
+  height: 23px;
 }
 
 .working-text {
@@ -96,7 +97,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: 16px;
+  margin-left: 5px;
 }
 
 .more-details {
@@ -183,4 +184,8 @@ input {
 
 .kakao-link-btn:hover {
   cursor: pointer;
+}
+
+.btnWrap {
+  width: 50%;
 }
