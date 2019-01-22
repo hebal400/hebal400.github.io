@@ -138,7 +138,7 @@ export default class Send extends Component {
 
             <label htmlFor="pay" className="label">
               <span className="labelTitle paylabel">
-                <select value={this.state.payType} className="pay-select">
+                <select value={this.payType} className="pay-select">
                   <option value="시급">시급</option>
                   <option value="일급">일급</option>
                   <option value="주급">주급</option>
@@ -148,7 +148,7 @@ export default class Send extends Component {
               </span>
               <div className="txtWrap">
                 <div className="input-text">
-                  <input name="pay" className="working-text pay" value = {this.state.pay} onChange={this.changepay} />
+                  <input name="pay" className="working-text pay" value = {this.pay} onChange={this.changepay} />
                 </div>
                 <span className="working-detail won">원</span>
               </div>
