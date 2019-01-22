@@ -35,11 +35,47 @@ export default class Send extends Component {
     });
   }
 
-  // changesiteTitle = event => {
-  //   let siteTitle = event.
-  // }
+  changesiteTitle = event => {
+    this.setState({
+      siteTitle:
+      event.currentTarget.value
+    })
+  }
 
+  changeworkingHour = event => {
+    this.setState({
+      workingHour:
+      event.currentTarget.value
+    })
+  }
 
+  changepayType = event => {
+    this.setState({
+      payType:
+      event.currentTarget.value
+    })
+  }
+
+  changepay = event => {
+    this.setState({
+      pay:
+      event.currentTarget.value
+    })
+  }
+
+  changeworkingAddress = event => {
+    this.setState({
+      workingAddress:
+      event.currentTarget.value
+    })
+  }
+
+  changeaddMemo = event => {
+    this.setState({
+      addMemo:
+      event.currentTarget.value
+    })
+  }
 
   sendTest = async () => {
     try {
@@ -74,7 +110,7 @@ export default class Send extends Component {
               </span>
               <div className="txtWrap">
                 <div className="input-text">
-                  <input name="siteTitle" className="working-text siteTitle" value = {this.state.siteTitle}/>
+                  <input name="siteTitle" className="working-text siteTitle" value = {this.state.siteTitle} onChange={this.changesiteTitle}/>
                 </div>
               </div>
             </label>
@@ -85,7 +121,7 @@ export default class Send extends Component {
               </span>
               <div className="txtWrap">
                 <div className="input-text">
-                  <input name="working-hour" className="working-text working-hour" value = {this.state.workingHour} />
+                  <input name="working-hour" className="working-text working-hour" value = {this.state.workingHour} onChange={this.changeworkingHour} />
                 </div>
                 <span className="working-detail time hour">시간</span>
               </div>
@@ -93,7 +129,7 @@ export default class Send extends Component {
 
             <label htmlFor="pay" className="label">
               <span className="labelTitle">
-                <select value={this.state.payType}>
+                <select value={this.state.payType} onChange={this.changepayType}>
                   <option value="시급">시급</option>
                   <option value="일급">일급</option>
                   <option value="주급">주급</option>
@@ -103,7 +139,7 @@ export default class Send extends Component {
               </span>
               <div className="txtWrap">
                 <div className="input-text">
-                  <input name="pay" className="working-text pay" value = {this.state.pay} />
+                  <input name="pay" className="working-text pay" value = {this.state.pay} onChange={this.changepay} />
                 </div>
                 <span className="working-detail won">원</span>
               </div>
@@ -115,19 +151,19 @@ export default class Send extends Component {
               </span>
               <div className="txtWrap">
                 <div className="input-text">
-                  <input name="workingAddress" className="working-text workingAddress" value = {this.state.workingAddress} />
+                  <input name="workingAddress" className="working-text workingAddress" value = {this.state.workingAddress} onChange={this.changeworkingAddress} />
                 </div>
               </div>
             </label>
 
-            
+
             <label htmlFor="more-details" className="label detail-container">
               <span className="labelTitle">
               추가메모
               </span>
               <br />
               <div className="textarea">
-                <textarea type="text" id="more-details" className="more-details" placeholder="추가 메모는 50자까지 입력가능합니다." />
+                <textarea type="text" id="more-details" className="more-details" placeholder="추가 메모는 70자까지 입력가능합니다." onChange={this.changeaddMemo} />
               </div>
             </label>
 
@@ -136,7 +172,7 @@ export default class Send extends Component {
             <button onClick={this.sendTest}>내게보내기 테스트</button>
             <div>{this.state.test}</div>
           </footer>
-          
+
         </div>
         )
   }
