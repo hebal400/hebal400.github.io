@@ -103,21 +103,17 @@ export default class Send extends Component {
   }
 
   sendToMeButton = () => (
-    <div className="btnWrap">
       <button onClick={this.sendTest} className="kakao-link-btn">
         <img src={MeAppIcon} alt="내게 보내기"/>
         <span>내게 보내기</span>
       </button>
-    </div>
   )
 
   sendLinkButton = () => (
-    <div className="btnWrap">
       <button className="kakao-link-btn" onClick={this.sendLink}>
         <img src={LinkIcon} alt="친구에게 공유하기" />
         <span>친구에게 공유하기</span>
       </button>
-    </div>
   )
 
   sendLink = () => {
@@ -159,7 +155,7 @@ export default class Send extends Component {
 
             <label htmlFor="pay" className="label">
               <span className="labelTitle paylabel">
-                <select value={this.payType} className="pay-select">
+                <select value={this.state.payType} className="pay-select" onChange={this.changepayType}>
                   <option value="시급">시급</option>
                   <option value="일급">일급</option>
                   <option value="주급">주급</option>
@@ -169,7 +165,7 @@ export default class Send extends Component {
               </span>
               <div className="txtWrap">
                 <div className="input-text">
-                  <input id="pay" className="working-text pay" value = {this.pay} onChange={this.changepay} />
+                  <input id="pay" className="working-text pay" value = {this.state.pay} onChange={this.changepay} />
                 </div>
                 <span className="working-detail won">원</span>
               </div>
