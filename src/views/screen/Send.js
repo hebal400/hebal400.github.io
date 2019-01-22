@@ -29,7 +29,8 @@ export default class Send extends Component {
           workingHour: data.parsedData.workingTime,
           payType: data.parsedData.payType,
           pay: data.parsedData.pay,
-          workingAddress: data.parsedData.workingAddress
+          workingAddress: data.parsedData.workingAddress,
+          addMemo: null,
         })
       }
 
@@ -89,8 +90,8 @@ export default class Send extends Component {
             'object_type': 'text',
             'text': `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.payType} ${this.state.pay}${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}추가메모: ${this.state.addMemo}`,
             'link': {
-              'web_url': '/test',
-              'mobile_web_url': '/test'
+              'web_url': 'https://www.naver.com',
+              'mobile_web_url': 'https://www.daum.net'
             }
           }
         }
@@ -103,30 +104,14 @@ export default class Send extends Component {
 
   sendToMeButton = () => (
     <button onClick={this.sendTest} className="btn-send-to-me">
-      <img src={MeAppIcon} alt="내게 보내기" />
+      <img src={MeAppIcon} />
       <span>내게 보내기</span>
     </button>
   )
 
-  sendButton = () => (
-    <div className="send-test" onClick={this.bindSendButton}>df</div>
-  )
-
-  bindSendButton = () => {
-    window.Kakao.Link.sendDefault({
-      objectType: 'text',
-      text: `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.pay}${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}추가메모: ${this.state.addMemo}`,
-      link: {
-        webUrl: 'https://www.naver.com',
-        mobileWebUrl: 'https://www.daum.net'
-      }
-    });
-  }
-
-  
   render() {
         return (
-        <div className="working-container">
+        <div class="working-container">
           <div id="working">
             <label htmlFor="siteTitle" className="label">
               <span className="labelTitle">
@@ -152,13 +137,8 @@ export default class Send extends Component {
             </label>
 
             <label htmlFor="pay" className="label">
-<<<<<<< HEAD
-              <span className="labelTitle">
-                <select value={this.state.payType} onChange={this.changepayType}>
-=======
               <span className="labelTitle paylabel">
                 <select value={this.state.payType} className="pay-select">
->>>>>>> ac630f8272b11cdb56a6f698a935510c2a322842
                   <option value="시급">시급</option>
                   <option value="일급">일급</option>
                   <option value="주급">주급</option>
@@ -199,13 +179,8 @@ export default class Send extends Component {
           </div>
           <footer className="send-footer">
             {this.sendToMeButton()}
-            {this.sendButton()}
             <div>{this.state.test}</div>
           </footer>
-<<<<<<< HEAD
-
-=======
->>>>>>> ac630f8272b11cdb56a6f698a935510c2a322842
         </div>
         )
   }
