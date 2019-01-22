@@ -82,9 +82,12 @@ export default class Calculator extends Component {
   ? (
     <li>
         <a href="#dayworktime"><label htmlFor="dayworktime" className="title">일일 근무 시간</label></a>
-        <input type="text" id="dayworktime" 
-            value={this.state.dayValue} 
-            onChange={this.changedayValueState}/>시간
+        <div className="input-container">
+            <input type="text" id="dayworktime" 
+                value={this.state.dayValue} 
+                onChange={this.changedayValueState} />
+        </div>
+        <span>시간</span>
     </li>
   ) : null
 
@@ -92,9 +95,12 @@ export default class Calculator extends Component {
   ? (
     <li>
         <a href="#weekworkday"><label htmlFor="weekworkday" className="title">한 주 근무일 수</label></a>
-        <input type="text" id="weekworkday" 
-            value={this.state.weekValue}
-            onChange={this.changeweekValueState}/>일
+        <div className="input-container">
+            <input type="text" id="weekworkday" 
+                value={this.state.weekValue}
+                onChange={this.changeweekValueState} />
+        </div>
+        <span>일</span>
     </li>
   ) : null
 
@@ -102,60 +108,65 @@ export default class Calculator extends Component {
   ? (
       <li>
           <a href="#monthworkday"><label htmlFor="monthworkday" className="title">한 달 근무일 수</label></a>
-          <input type="text" id="monthworkday" value={this.state.monthValue} onChange={this.changemonthValueState}/>일
+          <div className="input-container">
+            <input type="text" id="monthworkday" 
+                value={this.state.monthValue} 
+                onChange={this.changemonthValueState} />
+          </div>
+          <span>월</span>
       </li>
   ) : null
 
 
   render() {
     return (
-      <div className="wrap">
-      <div className="typearea"> 
-            <p id="lowestpay">2019년의 최저임금은 8,350원입니다.</p>
-            <ul id="fromtoul">
-                <li>
-                    <select name="from" onChange={this.changefromValueState} defaultValue={this.state.fromValue}>
-                        <option value="시급">시급</option>
-                        <option value="일급">일급</option>
-                        <option value="주급">주급</option>                        
-                        <option value="월급">월급</option>
-                        <option value="연봉">연봉</option>
-                    </select>
-                </li>
-                <li>
-                    <p>을</p>
-                </li>
-                <li>
-                    <select name="to" onChange={this.changetoValueState} defaultValue={this.state.toValue}>
-                        <option value="시급">시급</option>
-                        <option value="일급">일급</option>
-                        <option value="주급">주급</option>
-                        <option value="월급">월급</option>
-                        <option value="연봉">연봉</option>
-                    </select>
-                </li>
-                <li>
-                    <p>으로</p>
-                </li>
-            </ul>
-        </div>
-
+      <div className="calculator-container">   
+        <ul id="calc-tab">
+            <li className="calc-tab-title">현재 급여</li>
+            <li className="calc-tab-select">
+                <select name="from" onChange={this.changefromValueState} defaultValue={this.state.fromValue} className="calculator-select">
+                    <option value="시급">시급</option>
+                    <option value="일급">일급</option>
+                    <option value="주급">주급</option>                        
+                    <option value="월급">월급</option>
+                    <option value="연봉">연봉</option>
+                </select>
+            </li>
+            <li className="calc-tab-title">계산 급여</li>
+            <li className="calc-tab-select">
+                <select name="to" onChange={this.changetoValueState} defaultValue={this.state.toValue} className="calculator-select">
+                    <option value="시급">시급</option>
+                    <option value="일급">일급</option>
+                    <option value="주급">주급</option>
+                    <option value="월급">월급</option>
+                    <option value="연봉">연봉</option>
+                </select>
+            </li>
+        </ul>
+        <p id="lowestpay">2019년의 최저임금은 8,350원입니다</p>
         <div className="formarea">
             <ul id="formul">
                 <li>
                     <a href="#pay"><label htmlFor="pay" className="title">{this.state.fromValue}</label></a>
-                    <input type="text" id="pay" autoFocus="checked" 
-                        value = {this.state.payValue}
-                        onChange={this.changepayValueState}/>원
+                    <div className="input-container">
+                        <input type="text" id="pay" autoFocus="checked" 
+                            value = {this.state.payValue}
+                            onChange={this.changepayValueState}/>
+                        
+                    </div>
+                    <span>원</span>
                 </li>
                 {this._renderDay()}
                 {this._renderWeek()}
                 {this._renderMonth()}
                 
             </ul>
-            <div className="calculbtn" onClick = {this.clickCalBtn}>
-                <p>계산하기</p>
+            <div className="calculator-btn-container">
+                <button className="calculbtn" onClick = {this.clickCalBtn}>
+                    계산하기
+                </button>
             </div>
+
         </div>
             
         <div className="resultarea">

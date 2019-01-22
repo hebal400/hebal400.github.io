@@ -128,7 +128,7 @@ export default class Send extends Component {
   }
   render() {
         return (
-        <div class="working-container">
+        <div className="working-container">
           <div id="working">
             <label htmlFor="siteTitle" className="label">
               <span className="labelTitle">
