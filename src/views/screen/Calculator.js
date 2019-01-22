@@ -88,39 +88,45 @@ export default class Calculator extends Component {
     _renderDay = () => (this.state.needDay === 1)
     ? (
         <li>
-            <a href="#dayworktime"><label htmlFor="dayworktime" className="title">일일 근무 시간</label></a>
-            <div className="input-container">
-                <input type="text" id="dayworktime" 
-                    value={this.state.dayValue} 
-                    onChange={this.changedayValueState} />
-            </div>
-            <span>시간</span>
+            <label htmlFor="dayworktime" className="formula-item">
+                <span className="item-title">일일 근무 시간</span>
+                <div className="input-container">
+                    <input type="text" id="dayworktime" 
+                        value={this.state.dayValue} 
+                        onChange={this.changedayValueState} />
+                </div>
+                <span className="item-description">시간</span>
+            </label>
         </li>
     ) : null
 
     _renderWeek = () => (this.state.needWeek === 1)
     ? (
         <li>
-            <a href="#weekworkday"><label htmlFor="weekworkday" className="title">한 주 근무일 수</label></a>
-            <div className="input-container">
-                <input type="text" id="weekworkday" 
-                    value={this.state.weekValue}
-                    onChange={this.changeweekValueState} />
-            </div>
-            <span>일</span>
+            <label htmlFor="weekworkday" className="formula-item">
+                <span className="item-title">한 주 근무일 수</span>
+                <div className="input-container">
+                    <input type="text" id="weekworkday" 
+                        value={this.state.weekValue}
+                        onChange={this.changeweekValueState} />
+                </div>
+                <span className="item-description">일</span>
+            </label>
         </li>
     ) : null
 
     _renderMonth = () => (this.state.needMonth === 1)
     ? (
         <li>
-            <a href="#monthworkday"><label htmlFor="monthworkday" className="title">한 달 근무일 수</label></a>
-            <div className="input-container">
-                <input type="text" id="monthworkday" 
-                    value={this.state.monthValue} 
-                    onChange={this.changemonthValueState} />
-            </div>
-            <span>월</span>
+            <label htmlFor="monthworkday" className="formula-item">
+                <span className="item-title">한 달 근무일 수</span>
+                <div className="input-container">
+                    <input type="text" id="monthworkday" 
+                        value={this.state.monthValue} 
+                        onChange={this.changemonthValueState} />
+                </div>
+                <span className="item-description">월</span>
+            </label>
         </li>
     ) : null
 
@@ -158,14 +164,16 @@ export default class Calculator extends Component {
             <div className="formarea">
                 <ul id="formul">
                     <li>
-                        <a href="#pay"><label htmlFor="pay" className="title">{this.state.fromValue}</label></a>
-                        <div className="input-container">
-                            <input type="text" id="pay" autoFocus="checked" 
-                                value = {this.state.payValue}
-                                onChange={this.changepayValueState}/>
-                            
-                        </div>
-                        <span>원</span>
+                        <label htmlFor="pay" className="formula-item">
+                            <span className="item-title">{this.state.fromValue}</span>
+                            <div className="input-container">
+                                <input type="text" id="pay" autoFocus="checked" 
+                                    value = {this.state.payValue}
+                                    onChange={this.changepayValueState}/>
+                                
+                            </div>
+                            <span className="item-description">원</span>
+                        </label>
                     </li>
                     {this._renderDay()}
                     {this._renderWeek()}
