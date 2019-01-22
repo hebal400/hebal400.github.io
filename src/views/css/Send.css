@@ -108,7 +108,7 @@
   resize: none;
 }
 
-input:focus,textarea:focus, select:focus {
+input:focus,textarea:focus, select:focus, button:focus {
   outline: none;
 }
 
@@ -117,10 +117,7 @@ input {
   border-bottom: 0.5px solid #e7e7e7;
 }
 
-.send-footer {
-  flex: 0 1 50px;
-  border-top: 0.5px solid #d7d7d7;
-}
+
 
 .paylabel {
   height: 100%;
@@ -151,4 +148,34 @@ input {
   font-size: 10pt;
   padding: 0 8px;
 
+}
+
+.send-footer {
+  flex: 0 1 50px;
+  border-top: 0.5px solid #d7d7d7;
+  display: flex;
+  align-items: center;
+  padding: 4px 8px 0px 8px;
+}
+
+.btn-send-to-me {
+  border: 0;
+  background-color: #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.btn-send-to-me > * {
+  margin: 4px;
+}
+.btn-send-to-me > img {
+  height: 30px;
+}
+.btn-send-to-me > span {
+  font-weight: bold;
+}
+
+.btn-send-to-me:hover {
+  cursor: pointer;
 }

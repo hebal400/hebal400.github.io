@@ -2,18 +2,20 @@ import React, { Component } from 'react'
 import { getParsedData } from '../../actions';
 import "../css/Send.css"
 
+import MeAppIcon from '../../images/me_appicon_kr.png';
+
 export default class Send extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      siteTitle: null,
+      siteTitle: '',
       workingHour: 0,
       payType: "시급",
       pay: 0,
-      workingAddress: null,
-      addMemo: null,
+      workingAddress: '',
+      addMemo: '',
     }
   }
 
@@ -67,6 +69,13 @@ export default class Send extends Component {
       console.log(err, '이에오');
     }
   }
+
+  sendToMeButton = () => (
+    <button onClick={this.sendTest} className="btn-send-to-me">
+      <img src={MeAppIcon} />
+      <span>내게 보내기</span>
+    </button>
+  )
 
   render() {
         return (
@@ -137,10 +146,9 @@ export default class Send extends Component {
 
           </div>
           <footer className="send-footer">
-            <button onClick={this.sendTest}>내게보내기 테스트</button>
+            {this.sendToMeButton()}
             <div>{this.state.test}</div>
           </footer>
-          
         </div>
         )
   }
