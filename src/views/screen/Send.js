@@ -201,7 +201,6 @@ export default class Send extends Component {
           <footer className="send-footer">
             {this.sendToMeButton()}
             {this.sendLinkButton()}
-            <div>{this.state.test}</div>
           </footer>
         </div>
         )
