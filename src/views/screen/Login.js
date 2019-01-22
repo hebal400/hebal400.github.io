@@ -32,6 +32,10 @@ export default class Login extends Component {
         });
     }
 
+    onLoading = () => (
+        <div>로딩중</div>
+    )
+
     render() {
         if(this.state.redirect) return <Redirect to="/send" />
         return (
@@ -44,7 +48,7 @@ export default class Login extends Component {
             </Link>
             
             <div className="logo" style={{backgroundImage: `url(${Logo})`}}></div>
-            <div className="kakao-login-btn"></div>
+            <div className="kakao-login-btn">{this.onLoading()}</div>
         </div>
         )
     }

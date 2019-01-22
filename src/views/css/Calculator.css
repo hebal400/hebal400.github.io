@@ -170,9 +170,7 @@ li > a > .title {
 }
 
 #resultul{
-    margin: 10px 30px 30px 30px;
-    padding: 5px 2px 0 18px;
-    text-align: center;
+    margin: 10px;
 }
 
 #resultul li{
@@ -188,4 +186,9 @@ li > a > .title {
 #warn{
     text-align: center;
     font-size: 0.85em;
+}
+
+.calc-error {
+    color: red;
+    margin: 10px;
 }

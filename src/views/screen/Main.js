@@ -33,7 +33,7 @@ export default class Main extends Component {
             <li className="main-tabs-item">
               <NavLink to={`${match.path}/test`}>
                 <IoIosCalculator className="main-tabs-icon" size={25} color="#344955"/>
-                <span>테스트</span>
+                <span>급여 계산기</span>
               </NavLink>
             </li>
           </ul>
