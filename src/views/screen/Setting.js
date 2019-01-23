@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import '../css/Settings.css';
 import Modal from '../component/Modal';
+import { sendMessage } from '../../actions';
 
 export default class Setting extends Component {
     constructor(props) {
@@ -36,10 +37,9 @@ export default class Setting extends Component {
         </span>
     ) : null)
 
-    setModalState = () => {
-        this.setState({isShowModal: true})
+    openLink = () => {
+        sendMessage.bind(this)();
     }
-
     render() {
         if(this.state.redirect) return <Redirect to="/login" />
 
@@ -50,7 +50,7 @@ export default class Setting extends Component {
                 <span className="settings-header-title">설정</span>
             </header>
             <div className="settings-list">
-                <div className="settings-list-item" onClick={this.setModalState}>
+                <div className="settings-list-item" onClick={this.openLink}>
                     <span className="settings-list-item-title">개발자 소개</span>
                 </div>
             </div>

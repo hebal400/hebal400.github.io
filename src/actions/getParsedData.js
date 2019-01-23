@@ -1,7 +1,11 @@
+function isIframe() {
+    return !(window.parent === window)
+}
+
 export default function getParsedData(callback = null) {
 
     // iframe 상태일때만 동작하게
-    if(window.parent === window) {
+    if(!isIframe()) {
         console.error("iframe 상태가 아니면 \n해당 함수를 콜할 수 없어요!");
         callback({
             result: false,
@@ -31,6 +35,6 @@ export default function getParsedData(callback = null) {
     window.addEventListener('message', whenReceivedData, false);
 
     // 부모 측에 메시지 전달
-    window.parent.postMessage('requestDataFromParent', '*');
+    window.parent.postMessage({message: 'requestDataFromParent'}, '*');
 
 }
