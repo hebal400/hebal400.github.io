@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/Profile.css';
 import { SettingsButton } from '../component';
 import { Link } from 'react-router-dom';
-
+import DefaultProfileIcon from '../../images/logo.jpg'
 export default class Profile extends Component {
   _isMounted = false;
 
@@ -32,13 +32,16 @@ export default class Profile extends Component {
   componentWillUnmount = () => {
     this._isMounted = false;
   }
-  
+
   render = () => {
     let {nickname, thumbnail_image} = this.state.properties;
-    return(
+    
+    let profileImageSource = ( thumbnail_image !== undefined && thumbnail_image !== 'none')
+    ? thumbnail_image : DefaultProfileIcon;
+    return (
       <header className="profile-header">
         <div className="profile-item">
-          <img className="profile-image" src={thumbnail_image !== 'none' ? thumbnail_image : ''} alt="프로필 사진" />
+          <img className="profile-image" src={profileImageSource} alt="프로필 사진" />
           <span className="profile-nickname">{nickname !== 'none' ? nickname : ''}</span>
         </div>
         <Link to={{pathname: "/settings", state: { isLogin: true }}}><SettingsButton className="settings-btn" size={25} color="#353645"/></Link>
