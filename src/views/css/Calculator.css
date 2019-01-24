@@ -119,7 +119,7 @@ p{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    flex: 0 1 120px;
+    flex: 0 1 140px;
 }
 
 .formula-item > .item-description {
