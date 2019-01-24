@@ -114,7 +114,7 @@ export default class Send extends Component {
       
       // 정상 전송 완료
       if(res['result_code'] === 0) {
-        window.parent.postMessage({ message: 'sendNotification', text: '노티 테스트' }, '*');
+        window.parent.postMessage({ message: 'sendNotification', text: '전송 완료 ~~ <\'^\'>'}, '*');
       }
     } catch (err) {
       console.log(err, '이에오');
