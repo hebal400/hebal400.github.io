@@ -90,6 +90,14 @@
   font-size: 14px;
 }
 
+.siteTitle {
+  text-align: left;
+}
+
+.workingAddress {
+  text-align: left;
+}
+
 .working-detail {
   flex: 0 1 50px;
   display: flex;
