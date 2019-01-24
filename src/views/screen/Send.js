@@ -17,6 +17,7 @@ export default class Send extends Component {
       pay: 0,
       workingAddress: '',
       addMemo: '',
+      uri: ''
     }
   }
 
@@ -30,7 +31,8 @@ export default class Send extends Component {
           workingHour: data.parsedData.workingTime,
           payType: data.parsedData.payType,
           pay: data.parsedData.pay,
-          workingAddress: data.parsedData.workingAddress
+          workingAddress: data.parsedData.workingAddress,
+          uri: data.parsedData.uri
         })
       }
 
@@ -86,23 +88,34 @@ export default class Send extends Component {
       text += `추가메모: ${this.state.addMemo}`
     }
     try {
-
-      let res = await
-
-     window.Kakao.API.request({
+      let res = 
+      await window.Kakao.API.request({
         url: '/v2/api/talk/memo/default/send',
         data: {
           'template_object': {
             'object_type': 'text',
             'text': text,
             'link': {
-              'web_url': 'https://www.naver.com',
-              'mobile_web_url': 'https://www.daum.net'
-            }
+              'web_url': `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`,
+              'mobile_web_url': `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`
+            },
+            'buttons': [
+              {
+                "title": "웹으로 보아요",
+                "link": {
+                  "web_url": `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`,
+                  "mobile_web_url": `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`
+                }
+              }
+            ]
           }
         }
       })
-      console.log(res);
+      
+      // 정상 전송 완료
+      if(res['result_code'] === 0) {
+        window.parent.postMessage({ message: 'sendNotification', text: '노티 테스트' }, '*');
+      }
     } catch (err) {
       console.log(err, '이에오');
     }
@@ -133,9 +146,18 @@ export default class Send extends Component {
       objectType: 'text',
       text: text,
       link: {
-        'webUrl': 'https://www.naver.com',
-        'mobileWebUrl': 'https://www.daum.net'
-      }
+        'webUrl': `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`,
+        'mobileWebUrl': `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`,
+      },
+      buttons: [
+        {
+          "title": "웹으로 보기",
+          "link": {
+            "webUrl": `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`,
+            "mobileWebUrl": `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`,
+          }
+        }
+      ]
     })
   }
   render() {
