@@ -115,19 +115,23 @@ p{
 .formula-item > .item-title {
     text-align: right;
     margin-right: 8px;
-    flex: 1;
     font-size: 11pt;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 0 1 120px;
 }
 
 .formula-item > .item-description {
-    flex: 0 1 30px;
     margin-left: 8px;
     font-size: 11pt;
+    flex: 0 1 60px;
+    
 }
 
 .input-container {
     padding: 8px;
-    flex: 0 1 45px;
+    flex: 1;
     display: flex;
     align-items: center;
     background-color: #ffffff;
@@ -135,9 +139,7 @@ p{
 }
 
 #formul > li >  {
-    margin: 0 8px;
-    flex: 0 1 50px;
-        
+    margin: 0 8px;   
 }
 
 
