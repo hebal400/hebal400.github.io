@@ -1,0 +1,32 @@
+.memo-container {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    background-color: #e7e7e7;
+}
+
+.memo-textarea-container {
+    flex: 1;
+    display: flex;
+    padding: 16px;
+    background-color: #ffffff;
+}
+.memo-textarea-container > .memo-textarea {
+    flex: 1;
+    border: 0;
+    font-size: 12pt;
+    resize: none;
+}
+
+.memo-footer {
+    flex: 0 1 50px;
+    border-top: 0.5px solid #e7e7e7;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 4px 8px 0px 8px;
+}
+
+textarea:focus {
+    outline: 0;
+}

@@ -3,6 +3,7 @@ import "../css/Send.css"
 
 import MeAppIcon from '../../images/me_appicon_kr.png';
 import LinkIcon from '../../images/kakaolink_btn_small_ov.png';
+import FooterButton from '../component/KakaoButton';
 
 export default class Send extends Component {
 
@@ -21,8 +22,6 @@ export default class Send extends Component {
   }
 
   componentDidMount = () => {
-    // 테스트용
-    console.log('send의 props', this.props)
     let { siteTitle, workingHour, payType, pay, workingAddress, uri } = this.props.dataSource;
 
     this.setState({siteTitle, workingHour, payType, pay, workingAddress, uri})
@@ -70,7 +69,7 @@ export default class Send extends Component {
     })
   }
 
-  sendTest = async () => {
+  sendMe = async () => {
     var text = `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.payType} ${this.state.pay}원${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}`;
 
     if (this.state.addMemo !== '') {
@@ -109,20 +108,6 @@ export default class Send extends Component {
       console.log(err, '이에오');
     }
   }
-
-  sendToMeButton = () => (
-    <button onClick={this.sendTest} className="kakao-link-btn">
-      <img src={MeAppIcon} alt="내게 보내기"/>
-      <span>내게 보내기</span>
-    </button>
-  )
-
-  sendLinkButton = () => (
-    <button className="kakao-link-btn" onClick={this.sendLink}>
-      <img src={LinkIcon} alt="친구에게 공유하기" />
-      <span>친구에게 공유하기</span>
-    </button>
-  )
 
   sendLink = () => {
     var text = `제목: ${this.state.siteTitle}${'\n\n'}근무시간: ${this.state.workingHour}${'\n\n'}급여: ${this.state.payType} ${this.state.pay}${'\n\n'}주소: ${this.state.workingAddress}${'\n\n'}`;
@@ -218,8 +203,8 @@ export default class Send extends Component {
 
           </div>
           <footer className="send-footer">
-            {this.sendToMeButton()}
-            {this.sendLinkButton()}
+            <FooterButton onClick={this.sendMe} img={MeAppIcon} title="내게 보내기"/>
+            <FooterButton onClick={this.sendLink} img={LinkIcon} title="친구에게 공유하기"/>
           </footer>
         </div>
         )

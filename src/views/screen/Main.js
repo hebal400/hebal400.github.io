@@ -32,7 +32,6 @@ export default class Main extends Component {
 
   componentDidMount = () => {
     getParsedData((data) => {
-      console.log(data.result);
       this.setState({whenSearchAlba: data.result}, () => {
         if(this.state.whenSearchAlba) {
           this.setState({
@@ -52,8 +51,8 @@ export default class Main extends Component {
 
 
   renderTabItem = (key, to, Icon, title, isVisible ) => (isVisible) ? (
-    <li className="main-tabs-item" key={key} active>
-      <NavLink to={`${this.props.match.path}${to}`}>
+    <li className="main-tabs-item" key={key}>
+      <NavLink to={`${this.props.match.path}${to}`} activeClassName="selected">
         <Icon className="main-tabs-icon" size={25} color="#344955"/>
         <span>{title}</span>
       </NavLink>
@@ -62,12 +61,10 @@ export default class Main extends Component {
 
   render() {
     let { match, location } = this.props;
-    console.log('main props', match, location)
     if(!this.state.isLogin) return <Redirect to="/login" />
 
     if(location.pathname === match.path) {
       if(this.state.whenSearchAlba !== null) {
-        console.log('잘 넘어옴')
         if(this.state.whenSearchAlba) return <Redirect to={`${match.path}/send`} />
         else return <Redirect to={`${match.path}/memo`} />
       }

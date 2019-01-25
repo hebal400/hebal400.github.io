@@ -31,7 +31,6 @@
 .main-tabs {
     background-color: #ffffff;
     margin: 0;
-    padding: 8px 0;
     display: flex;
     border-bottom: 0.5px solid #e7e7e7;
 }
@@ -42,14 +41,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 0.5px solid #e7e7e7;
-}
-
-.main-tabs > li:last-child {
-  border-right: 0;
 }
 
 .main-tabs > li > a {
+    flex: 1;
     text-decoration: none;
     color: #000000;
     font-size: 8pt;
@@ -57,4 +52,10 @@
     justify-content: center;
     align-items: center;
     flex-direction:column;
+    background-color: #e7e7e7;
+    padding: 4px 4px 4px 8px;
+}
+
+.main-tabs > li > a.selected {
+  background-color: #ffffff;
 }
