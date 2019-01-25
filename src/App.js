@@ -23,6 +23,7 @@ class App extends Component {
         this.setState({ isLogin });
       })
     } catch (error) {
+      console.error('문제가 생겼어요', error);
       this.setState({ isLogin: false });
     }
   }
@@ -32,7 +33,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={props => <Loading {...props} isAuthed={this.state.isLogin} />} />
           <Route path="/login" component={props => <Login {...props} changeAuth={this.changeAuth}/>} />
-          <Route path="/send" component={props => <Main {...props} changeAuth={this.changeAuth}/>} />  
+          <Route path="/home" component={props => <Main {...props} changeAuth={this.changeAuth}/>} />  
           <Route path="/settings" component={Settings} />
         </Switch>
       </BrowserRouter>

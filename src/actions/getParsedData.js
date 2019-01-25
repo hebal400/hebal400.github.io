@@ -6,10 +6,7 @@ export default function getParsedData(callback = null) {
 
     // iframe 상태일때만 동작하게
     if(!isIframe()) {
-        console.error("iframe 상태가 아니면 \n해당 함수를 콜할 수 없어요!");
-        callback({
-            result: false,
-        })
+        callback({ result: false })
         return;
     }
     

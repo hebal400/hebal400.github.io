@@ -37,7 +37,7 @@ export default class Login extends Component {
     )
 
     render() {
-        if(this.state.redirect) return <Redirect to="/send" />
+        if(this.state.redirect) return <Redirect to="/home" />
         return (
         <div className="login">
             <Link to={{ pathname: "/settings", state: { isLogin: false }}}>

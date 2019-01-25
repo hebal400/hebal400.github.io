@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/Profile.css';
 import { SettingsButton } from '../component';
 import { Link } from 'react-router-dom';
-import DefaultProfileIcon from '../../images/logo.jpg'
+import DefaultProfileIcon from '../../images/user.png'
 export default class Profile extends Component {
   _isMounted = false;
 
@@ -38,6 +38,7 @@ export default class Profile extends Component {
     
     let profileImageSource = ( thumbnail_image !== undefined && thumbnail_image !== 'none')
     ? thumbnail_image : DefaultProfileIcon;
+
     return (
       <header className="profile-header">
         <div className="profile-item">

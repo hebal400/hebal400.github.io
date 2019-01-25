@@ -1,45 +1,96 @@
 import React, { Component } from 'react';
-import { Route, Redirect, NavLink } from 'react-router-dom';
-import { IoIosClipboard, IoIosCalculator } from 'react-icons/io';
+import { Route, Redirect, NavLink, Switch } from 'react-router-dom';
+import { IoIosChatboxes, IoIosCalculator, IoIosPaperPlane } from 'react-icons/io';
 // import 'https://fonts.googleapis.com/css?family=Jua';
 import '../css/Main.css';
 import Profile from '../component/Profile';
 import Send from './Send';
 import Calculator from './Calculator';
+import Memo from './Memo';
+import { getParsedData } from '../../actions';
 
 export default class Main extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      isLogin: true
+      isLogin: true,
+      whenSearchAlba: null,
+
+      dataSource: {
+        siteTitle: '',
+        workingHour: '',
+        payType: '',
+        pay: '',
+        workingAddress: '',
+        uri: ''
+      }
+      
     }
 
   }
 
+  componentDidMount = () => {
+    getParsedData((data) => {
+      console.log(data.result);
+      this.setState({whenSearchAlba: data.result}, () => {
+        if(this.state.whenSearchAlba) {
+          this.setState({
+            dataSource: {
+              siteTitle: data.parsedData.title,
+              workingHour: data.parsedData.workingTime,
+              payType: data.parsedData.payType,
+              pay: data.parsedData.pay,
+              workingAddress: data.parsedData.workingAddress,
+              uri: data.parsedData.uri
+            }
+          });
+        }
+      })
+    });
+  }
+
+
+  renderTabItem = (key, to, Icon, title, isVisible ) => (isVisible) ? (
+    <li className="main-tabs-item" key={key} active>
+      <NavLink to={`${this.props.match.path}${to}`}>
+        <Icon className="main-tabs-icon" size={25} color="#344955"/>
+        <span>{title}</span>
+      </NavLink>
+    </li>
+  ) : null
+
   render() {
-    let { match } = this.props;
+    let { match, location } = this.props;
+    console.log('main props', match, location)
     if(!this.state.isLogin) return <Redirect to="/login" />
+
+    if(location.pathname === match.path) {
+      if(this.state.whenSearchAlba !== null) {
+        console.log('잘 넘어옴')
+        if(this.state.whenSearchAlba) return <Redirect to={`${match.path}/send`} />
+        else return <Redirect to={`${match.path}/memo`} />
+      }
+      
+    }
+
     return (
         <div className="main-container">
-          <Profile kakaoLogOut={this.kakaoLogOut} />
+          <Profile />
           <ul className="main-tabs">
-            <li className="main-tabs-item">
-              <NavLink to={`${match.path}`}>
-                <IoIosClipboard className="main-tabs-icon" size={25} color="#344955"/>
-                <span>보내기</span>
-              </NavLink>
-            </li>
-            <li className="main-tabs-item">
-              <NavLink to={`${match.path}/test`}>
-                <IoIosCalculator className="main-tabs-icon" size={25} color="#344955"/>
-                <span>급여 계산기</span>
-              </NavLink>
-            </li>
+            {[
+                { to: `/send`, icon: IoIosPaperPlane, title: '보내기', isVisible: this.state.whenSearchAlba ? this.state.whenSearchAlba : false},
+                { to: `/memo`, icon: IoIosChatboxes, title: '메모하기' },
+                { to: `/calc`, icon: IoIosCalculator, title: '급여 계산기' }
+              ].map(({to, icon, title, isVisible = true}, index) => this.renderTabItem(index, to, icon, title, isVisible ))}
           </ul>
-
-          <Route exact path={`${match.path}`} component={Send} />
-          <Route path={`${match.path}/test`} component={Calculator} />
+          <Switch>
+            { this.state.whenSearchAlba ? 
+              <Route path={`${match.path}/send`} component={props => <Send {...props} dataSource={this.state.dataSource} />} /> : null
+            }
+            <Route path={`${match.path}/calc`} component={Calculator} />
+            <Route path={`${match.path}/memo`} component={Memo} />
+          </Switch>
 
         </div>
     )

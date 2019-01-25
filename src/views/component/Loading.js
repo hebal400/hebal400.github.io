@@ -5,6 +5,10 @@ import '../css/Loading.css';
 
 export default class Loading extends Component {
 
+    componentDidMount = () => {
+            
+    }
+
     render() {
         if(this.props.isAuthed === undefined) {
             return (
@@ -25,7 +29,7 @@ export default class Loading extends Component {
             )
         } else {
             if(!this.props.isAuthed) return <Redirect to="/login" />
-            else return <Redirect to="/send" />
+            else return <Redirect to="/home" />
         }
     }
 }

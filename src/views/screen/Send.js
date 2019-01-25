@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { getParsedData } from '../../actions';
 import "../css/Send.css"
 
 import MeAppIcon from '../../images/me_appicon_kr.png';
@@ -23,20 +22,10 @@ export default class Send extends Component {
 
   componentDidMount = () => {
     // 테스트용
-    getParsedData((data) => {
-      console.log(data);
-      if(data.result) {
-        this.setState({
-          siteTitle: data.parsedData.title,
-          workingHour: data.parsedData.workingTime,
-          payType: data.parsedData.payType,
-          pay: data.parsedData.pay,
-          workingAddress: data.parsedData.workingAddress,
-          uri: data.parsedData.uri
-        })
-      }
+    console.log('send의 props', this.props)
+    let { siteTitle, workingHour, payType, pay, workingAddress, uri } = this.props.dataSource;
 
-    });
+    this.setState({siteTitle, workingHour, payType, pay, workingAddress, uri})
   }
 
   changesiteTitle = event => {
