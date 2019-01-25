@@ -1,4 +1,4 @@
-.login {
+/* .login {
     flex:1;
     background-color: #ffffff;
     display: flex;
@@ -7,9 +7,9 @@
     padding: 50px 20px 40px 20px;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.settings-btn {
+/* .settings-btn {
     position:absolute;
     background-color: transparent;
     border: 0;
@@ -20,16 +20,29 @@
 
 .settings-btn:hover {
     cursor: pointer;
-}
+} */
 
 button:focus {
     outline: 0;
 }
 
-.login > .logo {
-    width: 300px;
-    height: 300px;
-    margin: 50px 0;
-    background-repeat: no-repeat;
-    background-position: center;
+.login {
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex: 1;
+  -webkit-animation: slide 6s linear 1;
+}
+
+.kakao-login-btn {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-top: 300px;
+}
+
+@-webkit-keyframes slide {
+  from {background-position: -330px 0;}
+  to {background-position: 100% 0;}
 }
