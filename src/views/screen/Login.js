@@ -37,7 +37,7 @@ export default class Login extends Component {
     )
 
     render() {
-        if(this.state.redirect) return <Redirect to="/send" />
+        if(this.state.redirect) return <Redirect to="/home" />
         return (
         <div className="login" style={{backgroundImage: `url(${Logo})`}}>
           <div className="kakao-login-btn">{this.onLoading()}</div>
