@@ -27,7 +27,7 @@ export default class Login extends Component {
                 this.setState({redirect: true});
             },
             fail: err => {
-               alert(JSON.stringify(err));
+               console.error(err);
             }
         });
     }
