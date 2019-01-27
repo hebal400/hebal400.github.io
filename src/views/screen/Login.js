@@ -7,7 +7,7 @@ import React, { Component } from 'react'
 import Settings from '../component/Settings'
 import { Redirect, Link } from 'react-router-dom';
 import '../css/Login.css';
-import Logo from '../../images/main.png';
+import Logo from '../../images/logo.jpg';
 
 export default class Login extends Component {
     constructor(props) {
@@ -39,9 +39,17 @@ export default class Login extends Component {
     render() {
         if(this.state.redirect) return <Redirect to="/home" />
         return (
-        <div className="login" style={{backgroundImage: `url(${Logo})`}}>
-          <div className="kakao-login-btn">{this.onLoading()}</div>
-        </div>
+          <div className="login">
+            <Link to={{ pathname: "/settings", state: { isLogin: false }}}>
+                <Settings
+                    size={30}
+                    className="settings-btn"
+                />
+            </Link>
+
+            <div className="logo" style={{backgroundImage: `url(${Logo})`}}></div>
+            <div className="kakao-login-btn">{this.onLoading()}</div>
+          </div>
         )
     }
 }
