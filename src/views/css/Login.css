@@ -26,12 +26,12 @@ button:focus {
     outline: 0;
 }
 
-.login {
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  flex: 1;
-  -webkit-animation: slide 6s linear 1;
+.login > .logo {
+    width: 300px;
+    height: 300px;
+    margin: 50px 0;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .kakao-login-btn {
@@ -42,7 +42,20 @@ button:focus {
   margin-top: 300px;
 }
 
-@-webkit-keyframes slide {
+
+
+
+/* background 이미지 슬라이드 스타일 */
+
+/* @-webkit-keyframes slide {
   from {background-position: -330px 0;}
   to {background-position: 100% 0;}
-}
+} */
+
+/* .login {
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex: 1;
+  -webkit-animation: slide 6s linear 1;
+} */
