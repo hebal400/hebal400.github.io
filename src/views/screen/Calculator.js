@@ -91,12 +91,12 @@ export default class Calculator extends Component {
             <label htmlFor="dayworktime" className="formula-item">
                 <span className="item-title">일일 근무 시간</span>
                 <div className="input-container">
-                    <input type="text" id="dayworktime" 
+                    <input type="number" id="dayworktime" 
                         value={this.state.dayValue} 
                         onChange={this.changedayValueState} 
-                        placeholder="테스트" />
+                        placeholder="5" />
                 </div>
-                <span className="item-description">시간</span>
+                {/* <span className="item-description">시간</span> */}
             </label>
         </li>
     ) : null
@@ -107,13 +107,13 @@ export default class Calculator extends Component {
             <label htmlFor="weekworkday" className="formula-item">
                 <span className="item-title">한 주 근무일 수</span>
                 <div className="input-container">
-                    <input type="text" id="weekworkday" 
+                    <input type="number" id="weekworkday" 
                         value={this.state.weekValue}
                         onChange={this.changeweekValueState} 
-                        placeholder="테스트"
+                        placeholder="5"
                         />
                 </div>
-                <span className="item-description">일</span>
+                {/* <span className="item-description">일</span> */}
             </label>
         </li>
     ) : null
@@ -122,15 +122,15 @@ export default class Calculator extends Component {
     ? (
         <li>
             <label htmlFor="monthworkday" className="formula-item">
-                <span className="item-title">한 달 근무일 수</span>
+                <div className="item-title">한 달 근무일 수</div>
                 <div className="input-container">
-                    <input type="text" id="monthworkday" 
+                    <input type="number" id="monthworkday" 
                         value={this.state.monthValue} 
                         onChange={this.changemonthValueState} 
-                        placeholder="테스트"
+                        placeholder="20"
                         />
                 </div>
-                <span className="item-description">월</span>
+                {/* <div className="item-description">월</div> */}
             </label>
         </li>
     ) : null
@@ -152,7 +152,7 @@ export default class Calculator extends Component {
                             <option value="주급">주급</option>                        
                             <option value="월급">월급</option>
                             <option value="연봉">연봉</option>
-                        </select>
+                        </select>   
                     </div>
                     <div className="calc-tab-title">을</div>
                 </li>
@@ -170,21 +170,21 @@ export default class Calculator extends Component {
                 </li>
                 
             </ul>
-            <p id="lowestpay">2019년의 최저임금은 8,350원입니다</p>
+            <p id="lowestpay">2019년의 최저시급은 8,350원입니다</p>
             <div className="formarea">
                 <ul id="formul">
                     <li>
                         <label htmlFor="pay" className="formula-item">
                             <span className="item-title">{this.state.fromValue}</span>
                             <div className="input-container">
-                                <input type="text" id="pay" autoFocus="checked" 
+                                <input type="number" id="pay" autoFocus="checked" 
                                     value = {this.state.payValue}
                                     onChange={this.changepayValueState}
-                                    placeholder="테스트"
+                                    placeholder="8350"
                                     />
                                 
                             </div>
-                            <span className="item-description">원</span>
+                            {/* <span className="item-description">원</span> */}
                         </label>
                     </li>
                     {this._renderDay()}

@@ -104,48 +104,40 @@ p{
 
 #formul li{
     flex: 1;
-    padding: 8px 0;
     display: flex;
-    align-items: center;
-    flex-direction: row;
+    /* align-items: center; */
+    flex-direction: column;
 }
 
 .formula-item {
-    width: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
 }
 
 .formula-item > .item-title {
-    text-align: right;
-    margin-right: 8px;
-    font-size: 11pt;
-    white-space: nowrap;
+    font-size: 12pt;
+    margin: 8px 0 0 4px;
+    /* white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    flex: 0 1 140px;
+    text-overflow: ellipsis; */
 }
 
 .formula-item > .item-description {
-    margin-left: 8px;
     font-size: 11pt;
-    flex: 0 1 60px;
     
 }
 
-.input-container {
+.formula-item > .input-container {
     padding: 8px;
-    flex: 1;
     display: flex;
     align-items: center;
     background-color: #ffffff;
-    border-radius: 16px;
+    border-radius: 6px;
 }
 
-#formul > li >  {
+/* #formul > li > * {
     margin: 0 8px;   
-}
+} */
 
 
 .input-container > input{
@@ -156,7 +148,7 @@ p{
 }
 
 .formarea input{
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 .formarea input:focus { 
@@ -165,7 +157,7 @@ p{
 }
 
 .calculator-btn-container {
-    padding: 16px 0;
+    padding: 8px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -174,7 +166,7 @@ p{
 .calculbtn{
     background-color: #353646;
     border-radius: 5px;
-    padding: 12px 20px;
+    padding: 8px 15px;
     display: flex;
     justify-content: center;
     color: #ffffff;
