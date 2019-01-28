@@ -7,6 +7,9 @@
     padding: 50px 20px 40px 20px;
     justify-content: center;
     align-items: center;
+    background-position: center;
+    background-size: cover;
+    -webkit-animation: slide 6s linear 1;
 }
 
 .settings-btn {
@@ -28,7 +31,7 @@ button:focus {
 
 .login > .logo {
     width: 300px;
-    flex: 0 1 300px;
+    flex: 0 1 300px;    
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -45,10 +48,10 @@ button:focus {
 
 /* background 이미지 슬라이드 스타일 */
 
-/* @-webkit-keyframes slide {
+@-webkit-keyframes slide {
   from {background-position: -330px 0;}
   to {background-position: 100% 0;}
-} */
+}
 
 /* .login {
   background-position: center;

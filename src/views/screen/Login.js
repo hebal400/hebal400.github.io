@@ -9,6 +9,8 @@ import { Redirect, Link } from 'react-router-dom';
 import '../css/Login.css';
 import Logo from '../../images/logo.jpg';
 
+import MainBackground from '../../images/main.png'
+
 export default class Login extends Component {
     constructor(props) {
         super(props);
@@ -39,7 +41,7 @@ export default class Login extends Component {
     render() {
         if(this.state.redirect) return <Redirect to="/home" />
         return (
-          <div className="login">
+          <div className="login" style={{"backgroundImage": `url(${MainBackground})`}}>
             <Link to={{ pathname: "/settings", state: { isLogin: false }}}>
                 <Settings
                     size={30}
