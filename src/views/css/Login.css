@@ -1,5 +1,5 @@
-/* .login {
-    flex:1;
+.login {
+    flex: 1;
     background-color: #ffffff;
     display: flex;
     position: relative;
@@ -7,7 +7,7 @@
     padding: 50px 20px 40px 20px;
     justify-content: center;
     align-items: center;
-} */
+}
 
 .settings-btn {
     position:absolute;
@@ -28,8 +28,7 @@ button:focus {
 
 .login > .logo {
     width: 300px;
-    height: 300px;
-    margin: 50px 0;
+    flex: 0 1 300px;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -39,7 +38,6 @@ button:focus {
   flex: 1;
   justify-content: center;
   align-items: center;
-  margin-top: 300px;
 }
 
 

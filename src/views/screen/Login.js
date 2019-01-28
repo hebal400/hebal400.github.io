@@ -48,7 +48,7 @@ export default class Login extends Component {
             </Link>
 
             <div className="logo" style={{backgroundImage: `url(${Logo})`}}></div>
-            <div className="kakao-login-btn">{this.onLoading()}</div>
+            <div className="kakao-login-btn"></div>
           </div>
         )
     }
