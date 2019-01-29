@@ -1,4 +1,4 @@
 if(window.parent === window) {
-    let redirectURI = "https://hebal400.github.io/albatalk"
+    let redirectURI = "https://albatalk.github.io"
     window.location.href = redirectURI;
 }
