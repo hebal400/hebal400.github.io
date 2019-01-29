@@ -137,18 +137,10 @@ export default class Send extends Component {
   render() {
         return (
         <div className="working-container">
-          <div id="working">
-            <label htmlFor="siteTitle" className="label">
-              <span className="labelTitle">
-              제목
-              </span>
-              <div className="txtWrap">
-                <div className="input-text">
-                  <input id="siteTitle" className="working-text siteTitle" value = {this.state.siteTitle} onChange={this.changesiteTitle}/>
-                </div>
-              </div>
-            </label>
-
+          <div className="job-title">
+            <input id="siteTitle" className="working-text siteTitle" value = {this.state.siteTitle} onChange={this.changesiteTitle} placeholder="제목을 입력하세요." />
+          </div>
+          <div id="working">          
             <label htmlFor="working-hour" className="label">
               <span className="labelTitle">
               근무시간
@@ -204,7 +196,7 @@ export default class Send extends Component {
           </div>
           <footer className="send-footer">
             <FooterButton onClick={this.sendMe} img={MeAppIcon} title="내게 보내기"/>
-            <FooterButton onClick={this.sendLink} img={LinkIcon} title="친구에게 공유하기"/>
+            <FooterButton onClick={this.sendLink} img={LinkIcon} title="친구에게 공유"/>
           </footer>
         </div>
         )

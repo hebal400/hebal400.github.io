@@ -146,6 +146,7 @@ p{
     border: 0;
     flex: 1;
     font-size: 1em;
+    font-weight: 300;
 }
 
 .formarea input{
@@ -171,7 +172,7 @@ p{
     display: flex;
     justify-content: center;
     color: #ffffff;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -183,6 +184,7 @@ p{
 
 #resultul{
     margin: 10px;
+    font-size: 1.1em;
 }
 
 #resultul li{
@@ -191,13 +193,13 @@ p{
 }
 
 #resultpay{
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: #353646;
 }
 
 #warn{
     text-align: center;
-    font-size: 0.85em;
+    font-size: 0.8em;
 }
 
 .calc-error {

@@ -46,8 +46,6 @@
 .main-tabs > li > a {
     flex: 1;
     text-decoration: none;
-    color: #000000;
-    font-size: 10pt;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,4 +56,10 @@
 
 .main-tabs > li > a.selected {
   background-color: #ffffff;
+}
+
+.main-tabs > li > a > span {
+  font-size: 10pt;
+  font-weight: 300;
+  color: #000000;
 }
