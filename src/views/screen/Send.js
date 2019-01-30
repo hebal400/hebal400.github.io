@@ -84,15 +84,15 @@ export default class Send extends Component {
             'object_type': 'text',
             'text': text,
             'link': {
-              'web_url': `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`,
-              'mobile_web_url': `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`
+              'web_url': `https://albatalk.github.io/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`,
+              'mobile_web_url': `https://albatalk.github.io/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`
             },
             'buttons': [
               {
                 "title": "웹으로 보아요",
                 "link": {
-                  "web_url": `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`,
-                  "mobile_web_url": `https://hebal400.github.io/albatalk/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`
+                  "web_url": `https://albatalk.github.io/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`,
+                  "mobile_web_url": `https://albatalk.github.io/redirect?redirect_uri=${encodeURIComponent(this.state.uri)}`
                 }
               }
             ]
